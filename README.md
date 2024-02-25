@@ -1,8 +1,12 @@
-## Linearity in mobile applications development
+# Partners management application
+The application is meant to ease business partners management in a company.<br>
+It is a mobile application written in a cross-platform framework called Flutter.<br>
 
-# _Ideas_
-1. Observe the complicated pattern required in mobile applications development
-2. Infere from the observations (lots of examples) 
-3. The circular runtime pattern
-4. The almost cirluar dependencies 
-5. The effects on the code style 
+## Features
+1. Encrypted credentials storage (with JWT, 24h availability).
+2. CRUD operations.
+3. Filter partners by name, email, and company address.
+4. Encrypted chat. 
+5. Most active partners (by number of messages).
+6. Meeting scheduling.
+7. Email integration. Send an email to a partner (or multiple) directly from the app.
