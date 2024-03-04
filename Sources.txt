@@ -1,0 +1,30 @@
+TOTAL SOURCES: 12 
+
+-- IMPORTANCE OF SEPARATING CONCERNS --
+1. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0fd24fa8ac2a77c4709103eb8a179fec38311fe8 - Frank Piessens, Dept. of Computer Science, K. U. Leuven, Belgium
+2. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=4b53c4af6254e7530fa4652d6fb0013680835ab1#page=76 - Hafedh Mili , Amel Elkharraz & Hamid Mcheick LAboratoire de recherche sur les TEchnologies du Commerce Électronique (LATECE), Université du Québec à Montréal, Canada
+3. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=7ca56114995ffc6efe1f43f914b7477508f09c97 - Mark C. Chu-Carroll -- Different approaches 
+
+
+-- Ways of separating the concerns --
+1. https://dl.acm.org/doi/pdf/10.1145/302405.302457 - Peri Tarr, Harold Ossher, William Harrison, IBM Watson Research Center
+2. https://sci-hub.se/10.1109/MS.2003.1231154 - Vinay Kulkarni and Sreedhar Reddy, Tata Research Development and Design Centre
+
+
+-- UI layer --
+1. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=c70af06900753d693ab375aee514ac6b5fcf7e81 - Sofie Goderisrende
+2. https://books.google.ro/books?hl=en&lr=&id=vS8y4by4NHQC&oi=fnd&pg=PA1&dq=separation+of+concerns+ui+layer&ots=DJV-zndRQP&sig=djN49A-Stp2bXxh3tXXM_UcQkpU&redir_esc=y#v=onepage&q=separation%20of%20concerns%20ui%20layer&f=false - 
+3. https://link.springer.com/content/pdf/10.1007/s10586-017-0794-7.pdf
+
+-- Business logic layer (includes Repository and Service)--
+1. https://link.springer.com/chapter/10.1007/11767138_27
+This is a counter example, we'll prove this is more inefficient than our approach
+
+
+-- Separating the UI state into UI rendering and UI state management --
+1. https://developer.android.com/topic/architecture/ui-layer
+2. https://developer.android.com/topic/architecture/ui-layer/stateholders
+
+
+-- Separating Model layer into Entities and DTO's --
+1. https://sci-hub.se/10.1007/978-3-662-49192-8_42

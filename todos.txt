@@ -1,1 +1,3 @@
-1. Find 15 sources minimum
+1. Find 3 sources minimum
+   -- sources should be about the speed of development and ease of maintainability of the project if separation of concerns is implemented
+2. Implement server side backend 

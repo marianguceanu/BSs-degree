@@ -33,12 +33,6 @@ This is achievable by using *__N degrees of separation__* and *__multi-dimension
     3. The Repository layer is separated into the data handling and the data source.
     4. The Service layer is separated into the service and the API.
     5. The Model layer is separated into the DTO's and the entities.
-<!--     
-The BLoC (Business Logic Component) pattern is a state management system that is used to manage the state of the application in a way that is easy to test and maintain.<br>
-By this, the application is divided into three degrees: the UI, the BLoC, and the Repository.<br>
-The UI is built using the Material Design guidelines and the application is responsive to different screen sizes.<br>
-The application is also built with a focus on performance and security.<br>
--->
 Let's see how we can measure the success of this objective on both the client and the server side.
 
 ## Client-side
