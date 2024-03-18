@@ -28,3 +28,25 @@ This is a counter example, we'll prove this is more inefficient than our approac
 
 -- Separating Model layer into Entities and DTO's --
 1. https://sci-hub.se/10.1007/978-3-662-49192-8_42
+
+
+!!!! Introducere - 3 pagini
+prima pagina - introducere generala
+urmatoarele 2 pagini - introducere in pentru problema administrarii partenerilor de afaceri
+
+prezentare istorica - exemple din trecut
+
+
+
+partea practica - subcapitol de introducere (de unde a venit ideea)
+
+diagrama use case
+detalii tehnice
+prezentare 3 functionalitati principale
+scopul
+diagrama de secventa
+screenshot
+bibliografie
+
+
+OVERLEAF

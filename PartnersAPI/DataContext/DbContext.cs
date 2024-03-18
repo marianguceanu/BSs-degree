@@ -36,8 +36,6 @@ namespace PartnersAPI.DataContext
 				.WithMany(c => c.PartnerChats)
 				.HasForeignKey(pc => pc.ChatId);
 
-			// modelBuilder.Entity<PartnerChatConnectionTable>()
-			// 	.HasKey(pc => new { pc.PartnerId, pc.ChatId });
 		}
 	}
 }
