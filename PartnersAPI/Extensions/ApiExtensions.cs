@@ -12,8 +12,9 @@ namespace PartnersAPI.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IPartnerRepository, PartnersRepository>();
+            services.AddScoped<IPartnersRepository, PartnersRepository>();
             services.AddScoped<IChatRepository, ChatRepository>();
+            services.AddScoped<ICredentialsRepository, CredentialsRepository>();
             services.AddScoped<IMessageRepository, MessageRepository>();
             return services;
         }
@@ -27,6 +28,7 @@ namespace PartnersAPI.Extensions
         public static IServiceCollection AddMiddlewares(this IServiceCollection services)
         {
             services.AddScoped<ErrorHandlerMiddleware>();
+            services.AddCors();
             return services;
         }
     }

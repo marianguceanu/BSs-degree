@@ -1,9 +1,9 @@
 TOTAL SOURCES: 12 
 
 -- IMPORTANCE OF SEPARATING CONCERNS --
-1. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0fd24fa8ac2a77c4709103eb8a179fec38311fe8 - Frank Piessens, Dept. of Computer Science, K. U. Leuven, Belgium
-2. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=4b53c4af6254e7530fa4652d6fb0013680835ab1#page=76 - Hafedh Mili , Amel Elkharraz & Hamid Mcheick LAboratoire de recherche sur les TEchnologies du Commerce Électronique (LATECE), Université du Québec à Montréal, Canada
-3. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=7ca56114995ffc6efe1f43f914b7477508f09c97 - Mark C. Chu-Carroll -- Different approaches 
+1. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0fd24fa8ac2a77c4709103eb8a179fec38311fe8 - Frank Piessens, Dept. of Computer Science, K. U. Leuven, Belgium, 30 sept 2002
+2. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=4b53c4af6254e7530fa4652d6fb0013680835ab1#page=76 - Hafedh Mili , Amel Elkharraz & Hamid Mcheick LAboratoire de recherche sur les TEchnologies du Commerce Électronique (LATECE), Université du Québec à Montréal, Canada, 21 mar 2004
+3. https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=7ca56114995ffc6efe1f43f914b7477508f09c97 - Mark C. Chu-Carroll -- Different approaches, 17 sept 2000  
 
 
 -- Ways of separating the concerns --

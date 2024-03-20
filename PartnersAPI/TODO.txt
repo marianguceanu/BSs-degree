@@ -1,26 +1,6 @@
--- Repositories --
-	1. UserRepository
-	2. PartnerRepository
-	3. MessageRepository
-	4. CredentialsRepository
+TODO - list of todos to implement in the near future
+    -- Add auto-mappers
+    -- Add valid errors
+    -- Add JWT
 
--- Services --
-	1. UserService
-	2. PartnerService
-	3. MessageService
-	4. CredentialsService
-
--- Extensions --
-	1. Db connection
-	2. Error handling (Middleware)
-	3. Authentication (Middleware)
-	4. JWT
-	5. Validation
-
-
-!!! Restructure relationships between entities as so:
-	- Chat has many messages
-	- Chat has at most 2 users
-	- User has many chats
-	- User has many messages
-	- Partner has many chats
+FIXME - nothing so far

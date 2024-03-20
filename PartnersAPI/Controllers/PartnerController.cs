@@ -1,68 +1,91 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PartnersAPI.DataContext;
 using PartnersAPI.Models;
 using PartnersAPI.Models.DTO;
+using PartnersAPI.Repository.Interfaces;
 
 namespace PartnersAPI.Controllers
 {
 
-	[ApiController]
-	[Route("[controller]")]
-	public class PartnerController : ControllerBase
-	{
-		private readonly PartnersContext _context;
-		public PartnerController(PartnersContext context)
-		{
-			_context = context;
-		}
+    [ApiController]
+    [Route("[controller]")]
+    public class PartnerController : ControllerBase
+    {
+        private readonly IPartnersRepository _partnersRepo;
+        public PartnerController(IPartnersRepository partnersRepository)
+        {
+            _partnersRepo = partnersRepository;
+        }
 
-		[HttpGet("all")]
-		public async Task<IActionResult> Get()
-		{
-			return Ok(await _context.Partners.ToListAsync());
-		}
+        [HttpGet("all")]
+        public async Task<IActionResult> Get()
+        {
+            var partners = await _partnersRepo.GetAll();
+            if (partners == null)
+            {
+                return NotFound();
+            }
+            return Ok(partners);
+        }
 
-		[HttpGet("{id}")]
-		public async Task<IActionResult> Get(int id)
-		{
-			return Ok(await _context.Partners.FindAsync(id));
-		}
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var partner = await _partnersRepo.GetById(id);
+            if (partner == null)
+            {
+                return NotFound();
+            }
+            return Ok(partner);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Post([FromBody] PartnerPostDTO partner)
-		{
-			// TODO - add mappings
-			await _context.Partners.AddAsync(new Partner
-			{
-				BusinessName = partner.BusinessName,
-				Address = partner.Address,
-				PhoneNumber = partner.PhoneNumber,
-				ContactPerson = partner.ContactPerson,
-				Email = partner.Email,
-				Credentials = default!,
-				PartnerChats = default!
-			});
-			// _context.Partners.Add(partner);
-			await _context.SaveChangesAsync();
-			return Ok(partner);
-		}
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] PartnerPostDTO partner)
+        {
+            var isAdded = await _partnersRepo.Add(new Partner
+            {
+                BusinessName = partner.BusinessName,
+                Address = partner.Address,
+                PhoneNumber = partner.PhoneNumber,
+                ContactPerson = partner.ContactPerson,
+                Email = partner.Email,
+                Credentials = default!,
+                PartnerChats = default!
+            });
+            if (!isAdded)
+            {
+                return NotFound(partner);
+            }
+            return Ok(partner);
+        }
 
-		[HttpPut]
-		public async Task<IActionResult> Put([FromBody] Partner partner)
-		{
-			_context.Partners.Update(partner);
-			await _context.SaveChangesAsync();
-			return Ok(partner);
-		}
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PartnerPostDTO partnerNewDetails)
+        {
+            var partner = await _partnersRepo.GetById(id);
+            if (partner == null)
+            {
+                return NotFound(id);
+            }
+            partner.BusinessName = partnerNewDetails.BusinessName;
+            partner.Email = partnerNewDetails.Email;
+            partner.ContactPerson = partnerNewDetails.ContactPerson;
+            partner.PhoneNumber = partnerNewDetails.PhoneNumber;
+            partner.Address = partnerNewDetails.Address;
+            await _partnersRepo.Update(partner);
+            return Ok(partner);
+        }
 
-		[HttpDelete("{id}")]
-		public async Task<IActionResult> Delete(int id)
-		{
-			var partner = await _context.Partners.FindAsync(id);
-			_context.Partners.Remove(partner!);
-			await _context.SaveChangesAsync();
-			return Ok(partner!);
-		}
-	}
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var partner = await _partnersRepo.GetById(id);
+            if (partner == null)
+            {
+                return NotFound(id);
+            }
+            await _partnersRepo.Delete(partner);
+            return Ok(partner);
+        }
+    }
 }

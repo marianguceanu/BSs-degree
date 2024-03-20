@@ -1,75 +1,89 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PartnersAPI.DataContext;
 using PartnersAPI.Models;
+using PartnersAPI.Repository.Interfaces;
 
 namespace PartnersAPI.Controllers
 {
-	[ApiController]
-	[Route("api/[controller]")]
-	public class MessagesController : ControllerBase
-	{
-		private readonly PartnersContext _context;
-		public MessagesController(PartnersContext context)
-		{
-			_context = context;
-		}
+    [ApiController]
+    [Route("api/[controller]")]
+    public class MessagesController : ControllerBase
+    {
+        private readonly IMessageRepository _messageRepo;
+        public MessagesController(IMessageRepository messageRepository)
+        {
+            _messageRepo = messageRepository;
+        }
 
-		[HttpGet("all")]
-		public async Task<IActionResult> Get()
-		{
-			var messages = await _context.Messages.ToListAsync();
-			if (messages.Count == 0)
-			{
-				return NotFound();
-			}
+        [HttpGet("all")]
+        public async Task<IActionResult> Get()
+        {
+            var messages = await _messageRepo.GetAll();
+            if (messages == null)
+            {
+                return NotFound();
+            }
 
-			return Ok(messages);
-		}
+            return Ok(messages);
+        }
 
-		[HttpGet("{id}")]
-		public async Task<IActionResult> Get(int id)
-		{
-			var message = await _context.Messages.FindAsync(id);
-			if (message == null)
-			{
-				return NotFound();
-			}
-			return Ok(message);
-		}
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var message = await _messageRepo.GetById(id);
+            if (message == null)
+            {
+                return NotFound(id);
+            }
+            return Ok(message);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Post([FromBody] Message message)
-		{
-			_context.Messages.Add(message);
-			await _context.SaveChangesAsync();
-			return Ok(message);
-		}
+        [HttpGet("byChatId/{chatId:int}")]
+        public async Task<IActionResult> GetByChatId([FromRoute] int chatId)
+        {
+            var messages = await _messageRepo.GetMessageByChatId(chatId);
+            if (messages == null)
+            {
+                return NotFound(chatId);
+            }
+            return Ok(messages);
+        }
 
-		[HttpPut]
-		public async Task<IActionResult> Put([FromBody] Message message)
-		{
-			var messageInDb = await _context.Messages.FindAsync(message.MessageId);
-			if (messageInDb == null)
-			{
-				return NotFound();
-			}
-			_context.Messages.Update(message);
-			await _context.SaveChangesAsync();
-			return Ok(message);
-		}
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Message message)
+        {
+            var isAdded = await _messageRepo.Add(message);
+            if (!isAdded)
+            {
+                return BadRequest(message);
+            }
+            return Ok(message);
+        }
 
-		[HttpDelete("{id}")]
-		public async Task<IActionResult> Delete(int id)
-		{
-			var message = await _context.Messages.FindAsync(id);
-			if (message == null)
-			{
-				return NotFound();
-			}
-			_context.Messages.Remove(message);
-			await _context.SaveChangesAsync();
-			return Ok(message);
-		}
-	}
+        [HttpPut("id:int")]
+        public async Task<IActionResult> Put([FromBody] Message message, [FromRoute] int id)
+        {
+            var isUpdated = await _messageRepo.Update(message);
+            if (!isUpdated)
+            {
+                return NotFound(message);
+            }
+            return Ok(message);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var toDelete = await _messageRepo.GetById(id);
+            if (toDelete == null)
+            {
+                return NotFound(id);
+            }
+            var isDeleted = await _messageRepo.Delete(toDelete);
+            if (!isDeleted)
+            {
+                return NotFound();
+            }
+            return Ok(id);
+        }
+    }
 }

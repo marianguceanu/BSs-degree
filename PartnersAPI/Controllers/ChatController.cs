@@ -1,96 +1,92 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PartnersAPI.DataContext;
 using PartnersAPI.Models;
+using PartnersAPI.Repository.Interfaces;
 
 namespace PartnersAPI.Controllers
 {
-	[ApiController]
-	[Route("api/[controller]")]
-	public class ChatController : ControllerBase
-	{
-		private readonly PartnersContext _context;
-		public ChatController(PartnersContext context)
-		{
-			_context = context;
-		}
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ChatController : ControllerBase
+    {
+        private readonly IChatRepository _chatRepo;
+        private readonly IPartnersRepository _partnerRepo;
+        public ChatController(PartnersContext context, IChatRepository chatRepository, IPartnersRepository partnerRepository)
+        {
+            _chatRepo = chatRepository;
+            _partnerRepo = partnerRepository;
+        }
 
-		[HttpGet("get/all")]
-		public async Task<IActionResult> Get()
-		{
-			var chats = await _context.Chats.ToListAsync();
-			if (chats.Count == 0)
-			{
-				return NotFound();
-			}
+        [HttpGet("all")]
+        public async Task<IActionResult> Get()
+        {
+            var chats = await _chatRepo.GetAll();
+            if (chats == null)
+            {
+                return NotFound();
+            }
 
-			return Ok(chats);
-		}
+            return Ok(chats);
+        }
 
-		[HttpGet("get/{id}")]
-		public async Task<IActionResult> Get(int id)
-		{
-			var chat = await _context.Chats.FindAsync(id);
-			if (chat == null)
-			{
-				return NotFound();
-			}
-			return Ok(chat);
-		}
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var chat = await _chatRepo.GetById(id);
+            if (chat == null)
+            {
+                return NotFound();
+            }
+            return Ok(chat);
+        }
 
-		[HttpPost("add/{person1Id}/{person2Id}")]
-		public async Task<IActionResult> Post([FromRoute] int person1Id, [FromRoute] int person2Id)
-		{
-			// Checking if the partners exist
-			var person1 = await _context.Partners.FindAsync(person1Id);
-			var person2 = await _context.Partners.FindAsync(person2Id);
-			if (person1 == null || person2 == null)
-			{
-				return NotFound();
-			}
+        [HttpPost("{person1Id:int}/{person2Id:int}")]
+        public async Task<IActionResult> Post([FromRoute] int person1Id, [FromRoute] int person2Id)
+        {
+            // Checking if the partners exist
+            var person1 = await _partnerRepo.GetById(person1Id);
+            var person2 = await _partnerRepo.GetById(person2Id);
+            if (person1 == null || person2 == null)
+            {
+                return NotFound();
+            }
 
-			// Creating a new chat
-			var chat = new Chat
-			{
-			};
-			await _context.Chats.AddAsync(chat);
-			await _context.SaveChangesAsync();
-			var savedChat = await _context.Chats.FindAsync(chat.ChatId);
-			if (savedChat == null)
-			{
-				return NotFound();
-			}
+            // Creating a new chat
+            var chat = new Chat
+            {
+            };
+            await _chatRepo.Add(chat);
+            if (chat == null)
+            {
+                return NotFound();
+            }
+            await _chatRepo.SaveChanges();
+            return Ok(chat);
+        }
 
-			await _context.SaveChangesAsync();
-			await _context.SaveChangesAsync();
-			return Ok(savedChat);
-		}
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Put([FromBody] Chat chat)
+        {
+            var chatInDb = await _chatRepo.GetById(chat.ChatId);
+            if (chatInDb == null)
+            {
+                return NotFound();
+            }
+            await _chatRepo.Update(chat);
+            return Ok(chat);
+        }
 
-		[HttpPut("/update")]
-		public async Task<IActionResult> Put([FromBody] Chat chat)
-		{
-			var chatInDb = await _context.Chats.FindAsync(chat.ChatId);
-			if (chatInDb == null)
-			{
-				return NotFound();
-			}
-			_context.Chats.Update(chat);
-			await _context.SaveChangesAsync();
-			return Ok(chat);
-		}
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var chat = await _chatRepo.GetById(id);
+            if (chat == null)
+            {
+                return NotFound();
+            }
+            await _chatRepo.Delete(chat);
+            return Ok(chat!);
+        }
 
-		[HttpDelete("delete/{id}")]
-		public async Task<IActionResult> Delete(int id)
-		{
-			var chat = await _context.Chats.FindAsync(id);
-			if (chat == null)
-			{
-				return NotFound();
-			}
-			_context.Chats.Remove(chat);
-			await _context.SaveChangesAsync();
-			return Ok(chat!);
-		}
-
-	}
+    }
 }
