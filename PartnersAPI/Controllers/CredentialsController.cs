@@ -42,7 +42,7 @@ namespace PartnersAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CredentialsPostDTO credential)
+        public async Task<IActionResult> Post([FromBody] CredentialsPostPutDTO credential)
         {
             var partner = await _partnersRepo.GetById(credential.PartnerId);
             if (partner == null)
@@ -61,9 +61,17 @@ namespace PartnersAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Credentials credential)
+        public async Task<IActionResult> Put([FromBody] CredentialsPostPutDTO credential)
         {
-            var isUpdated = await _credentialsRepo.Update(credential);
+            var credentials = await _credentialsRepo.GetCredentialsByPersonId(credential.PartnerId);
+            if (credentials == null)
+            {
+                return NotFound(credential);
+            }
+            credentials.Username = credential.Username;
+            credentials.Password = credential.Password;
+            credentials.Role = credential.Role;
+            var isUpdated = await _credentialsRepo.Update(credentials);
             if (!isUpdated)
             {
                 return NotFound();

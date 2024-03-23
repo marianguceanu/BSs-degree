@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PartnersAPI.Models;
+using PartnersAPI.Models.DTO;
 using PartnersAPI.Repository.Interfaces;
 
 namespace PartnersAPI.Controllers
@@ -22,8 +23,20 @@ namespace PartnersAPI.Controllers
             {
                 return NotFound();
             }
-
-            return Ok(messages);
+            var mappedMessages = new List<MessagePostPutDTO>();
+            foreach (var msg in messages)
+            {
+                var mappedMsg = new MessagePostPutDTO
+                {
+                    MessageId = msg.MessageId,
+                    Text = msg.Text,
+                    SenderId = msg.SenderId,
+                    DateSent = msg.DateSent,
+                    IsRead = msg.IsRead
+                };
+                mappedMessages.Add(mappedMsg);
+            }
+            return Ok(mappedMessages);
         }
 
         [HttpGet("{id:int}")]
@@ -45,27 +58,58 @@ namespace PartnersAPI.Controllers
             {
                 return NotFound(chatId);
             }
-            return Ok(messages);
+            var mappedMessages = new List<MessagePostPutDTO>();
+            foreach (var msg in messages)
+            {
+                var mappedMsg = new MessagePostPutDTO
+                {
+                    MessageId = msg.MessageId,
+                    Text = msg.Text,
+                    SenderId = msg.SenderId,
+                    DateSent = msg.DateSent,
+                    IsRead = msg.IsRead,
+                };
+                mappedMessages.Add(mappedMsg);
+            }
+            return Ok(mappedMessages);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Message message)
+        public async Task<IActionResult> Post([FromBody] MessagePostPutDTO messageDTO)
         {
+            var message = new Message
+            {
+                MessageId = messageDTO.MessageId,
+                Text = messageDTO.Text,
+                SenderId = messageDTO.SenderId,
+                DateSent = messageDTO.DateSent,
+                IsRead = messageDTO.IsRead,
+                ChatId = messageDTO.ChatId,
+                Chat = default!
+            };
             var isAdded = await _messageRepo.Add(message);
             if (!isAdded)
             {
-                return BadRequest(message);
+                return BadRequest(messageDTO);
             }
             return Ok(message);
         }
 
         [HttpPut("id:int")]
-        public async Task<IActionResult> Put([FromBody] Message message, [FromRoute] int id)
+        public async Task<IActionResult> Put([FromBody] MessagePostPutDTO messageDTO, [FromRoute] int id)
         {
+            var message = new Message
+            {
+                MessageId = messageDTO.MessageId,
+                Text = messageDTO.Text,
+                SenderId = messageDTO.SenderId,
+                DateSent = messageDTO.DateSent,
+                IsRead = messageDTO.IsRead,
+            };
             var isUpdated = await _messageRepo.Update(message);
             if (!isUpdated)
             {
-                return NotFound(message);
+                return NotFound(messageDTO);
             }
             return Ok(message);
         }

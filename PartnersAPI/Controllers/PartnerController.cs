@@ -40,7 +40,7 @@ namespace PartnersAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] PartnerPostDTO partner)
+        public async Task<IActionResult> Post([FromBody] PartnerPostPutDTO partner)
         {
             var isAdded = await _partnersRepo.Add(new Partner
             {
@@ -60,7 +60,7 @@ namespace PartnersAPI.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PartnerPostDTO partnerNewDetails)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PartnerPostPutDTO partnerNewDetails)
         {
             var partner = await _partnersRepo.GetById(id);
             if (partner == null)

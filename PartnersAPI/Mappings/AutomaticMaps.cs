@@ -8,8 +8,8 @@ namespace PartnersAPI.Mappings
     {
         MapperConfiguration config { get; set; } = new(cfg =>
            {
-               cfg.CreateMap<Partner, PartnerPostDTO>();
-               cfg.CreateMap<PartnerPostDTO, Partner>();
+               cfg.CreateMap<Partner, PartnerPostPutDTO>();
+               cfg.CreateMap<PartnerPostPutDTO, Partner>();
            });
     }
 }
