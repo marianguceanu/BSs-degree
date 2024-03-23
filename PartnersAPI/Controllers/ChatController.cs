@@ -64,19 +64,19 @@ namespace PartnersAPI.Controllers
 			return Ok(chat);
 		}
 
-		[HttpPut("addPartnerToChat/{partnerId:int}/{chatId:int}")]
-		public async Task<IActionResult> Put([FromRoute] int partnerId, [FromRoute] int chatId)
-		{
-			// TODO: this update should in fact add a new PartnerChat instance to the DB with the chat id and the partner id
-			var partner = await _partnerRepo.GetById(partnerId);
-			if (partner == null)
-			{
-				return NotFound();
-			}
-			await _chatRepo.Update(chat);
-			return Ok(chat);
-		}
-
+		// [HttpPut("addPartnerToChat/{partnerId:int}/{chatId:int}")]
+		// public async Task<IActionResult> Put([FromRoute] int partnerId, [FromRoute] int chatId)
+		// {
+		// 	//  TODO: this update should in fact add a new PartnerChat instance to the DB with the chat id and the partner id
+		// 	var partner = await _partnerRepo.GetById(partnerId);
+		// 	if (partner == null)
+		// 	{
+		// 		return NotFound();
+		// 	}
+		// 	await _chatRepo.Update(chat);
+		// 	return Ok(chat);
+		// }
+		//
 		[HttpDelete("{id:int}")]
 		public async Task<IActionResult> Delete(int id)
 		{

@@ -1,7 +1,9 @@
-1. Find 3 sources minimum
-   -- sources should be about the speed of development and ease of maintainability of the project if separation of concerns is implemented
-2. Think of models for the backend
-   -- what are the models that will be used in the backend
-   -- relations between the tables
-   -- what are the fields in the tables
+--- BACKEND ---
 
+!!! Add auto-mappers
+- Add valid errors
+- Add JWT
+- Create repository for the PartnerChatConnectionTable
+- Migrate to postgres
+
+--- FRONTEND ---

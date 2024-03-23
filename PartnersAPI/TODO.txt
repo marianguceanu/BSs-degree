@@ -1,6 +1,0 @@
-TODO - list of todos to implement in the near future
-    -- Add auto-mappers
-    -- Add valid errors
-    -- Add JWT
-
-FIXME - nothing so far
