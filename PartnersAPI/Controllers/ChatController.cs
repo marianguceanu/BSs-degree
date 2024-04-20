@@ -11,10 +11,14 @@ namespace PartnersAPI.Controllers
 	{
 		private readonly IChatRepository _chatRepo;
 		private readonly IPartnersRepository _partnerRepo;
-		public ChatController(PartnersContext context, IChatRepository chatRepository, IPartnersRepository partnerRepository)
+		private readonly IPCConnectionTableRepository _pcRepo;
+		private readonly IMessageRepository _messageRepo;
+		public ChatController(PartnersContext context, IChatRepository chatRepository, IPartnersRepository partnerRepository, IPCConnectionTableRepository pcRepo, IMessageRepository messageRepository)
 		{
 			_chatRepo = chatRepository;
 			_partnerRepo = partnerRepository;
+			_pcRepo = pcRepo;
+			_messageRepo = messageRepository;
 		}
 
 		[HttpGet("all")]
@@ -40,43 +44,71 @@ namespace PartnersAPI.Controllers
 			return Ok(chat);
 		}
 
+		[HttpGet("pc")]
+		public async Task<IActionResult> GetAllPC()
+		{
+			var pcs = await _pcRepo.GetAll();
+			if (pcs == null)
+			{
+				return NotFound();
+			}
+			return Ok(pcs);
+		}
+
 		[HttpPost("{person1Id:int}/{person2Id:int}")]
 		public async Task<IActionResult> Post([FromRoute] int person1Id, [FromRoute] int person2Id)
 		{
 			// Checking if the partners exist
 			var person1 = await _partnerRepo.GetById(person1Id);
 			var person2 = await _partnerRepo.GetById(person2Id);
-			if (person1 == null || person2 == null)
+			if (person1 == null)
 			{
-				return NotFound();
+				return NotFound(person1Id);
+			}
+			if (person2 == null)
+			{
+				return NotFound(person2Id);
 			}
 
 			// Creating a new chat
 			var chat = new Chat
 			{
 			};
-			await _chatRepo.Add(chat);
+			bool isChatAdded = await _chatRepo.Add(chat);
+			if (!isChatAdded)
+			{
+				return BadRequest();
+			}
+			return Ok(chat);
+		}
+
+		[HttpPut("addPartnerToChat/{partnerId:int}/{chatId:int}")]
+		public async Task<IActionResult> Put([FromRoute] int partnerId, [FromRoute] int chatId)
+		{
+			var partner = await _partnerRepo.GetById(partnerId);
+			if (partner == null)
+			{
+				return NotFound();
+			}
+			var chat = await _chatRepo.GetById(chatId);
 			if (chat == null)
 			{
 				return NotFound();
 			}
-			await _chatRepo.SaveChanges();
-			return Ok(chat);
+			var pc = new PartnerChatConnectionTable
+			{
+				ChatId = chatId,
+				PartnerId = partnerId
+			};
+			bool isPCAdded = await _pcRepo.Add(pc);
+			if (!isPCAdded)
+			{
+				return BadRequest("Could not resolve the connection between the chat and the partner");
+			}
+			var allPC = await _pcRepo.GetAll();
+			return Ok(partner);
 		}
 
-		// [HttpPut("addPartnerToChat/{partnerId:int}/{chatId:int}")]
-		// public async Task<IActionResult> Put([FromRoute] int partnerId, [FromRoute] int chatId)
-		// {
-		// 	//  TODO: this update should in fact add a new PartnerChat instance to the DB with the chat id and the partner id
-		// 	var partner = await _partnerRepo.GetById(partnerId);
-		// 	if (partner == null)
-		// 	{
-		// 		return NotFound();
-		// 	}
-		// 	await _chatRepo.Update(chat);
-		// 	return Ok(chat);
-		// }
-		//
 		[HttpDelete("{id:int}")]
 		public async Task<IActionResult> Delete(int id)
 		{
@@ -85,7 +117,18 @@ namespace PartnersAPI.Controllers
 			{
 				return NotFound();
 			}
-			await _chatRepo.Delete(chat);
+			bool isDeleted = await _chatRepo.Delete(chat);
+			if (!isDeleted)
+			{
+				return BadRequest("Could not delete the chat");
+			}
+
+
+			var messages = await _messageRepo.GetByChatId(id);
+			if (messages == null)
+			{
+				return BadRequest("Could not delete messages attached to chat");
+			}
 			return Ok(chat!);
 		}
 

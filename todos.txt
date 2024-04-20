@@ -3,7 +3,9 @@
 !!! Add auto-mappers
 - Add valid errors
 - Add JWT
-- Create repository for the PartnerChatConnectionTable
-- Migrate to postgres
+- Create controller for the PartnerChatConnectionTable
 
 --- FRONTEND ---
+
+--- THESIS LATEX ---
+

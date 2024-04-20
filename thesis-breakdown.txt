@@ -1,0 +1,52 @@
+1. Introduction
+	- Definition of cross-platform development
+	- Why cross-platform development is important
+	- Abstract: what is cross-platform development
+
+2. History of cross-platform development
+        - Evolution of computer systems, by decades
+	- Link between hardware and software development
+	- Abstract: why cross-platform development became a branch of software engineering, from a niche
+
+3. Current state of cross-platform development
+	- Lack of separation of concerns
+	- What legacy features are still present in cross-platform development: good and bad
+		-- Examples of legacy features
+		-- Good:
+			* Component-based development
+			* Code generation
+			* Domain-specific languages
+		-- Bad:
+			* Lack of reusability
+			* Hardship of maintainability
+			* Hard-to-learn systems
+	- Tools and techniques
+	- Examples of cross-platform development
+	- Abstract: how cross-platform development is used today
+
+4. Separation of concerns 
+	- What is separation of concerns
+		-- Definition
+		-- Layers of abstraction
+		-- Dimensions of separation
+		-- Examples
+	- When was it first introduced
+	- Rise in popularity
+		-- Why it became popular
+		-- What domain brought it to the forefront
+	- Why separation of concerns is important
+
+5. Impacts of separating concerns
+	- Benefits
+		-- Reusability
+		-- Maintainability
+		-- Scalability
+		-- Flexibility
+		-- Testability
+	- Challenges
+		-- Complexity
+		-- Performance
+		-- Learning curve
+		-- Tooling
+		-- Debugging
+	- Abstract: how separation of concerns can improve cross-platform development and what are the challenges
