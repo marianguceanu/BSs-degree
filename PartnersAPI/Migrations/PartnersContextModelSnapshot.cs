@@ -146,10 +146,6 @@ namespace PartnersAPI.Migrations
 
                     b.HasKey("PartnerChatId");
 
-                    b.HasIndex("ChatId");
-
-                    b.HasIndex("PartnerId");
-
                     b.ToTable("PartnerChatConnections");
                 });
 
@@ -175,38 +171,15 @@ namespace PartnersAPI.Migrations
                     b.Navigation("Chat");
                 });
 
-            modelBuilder.Entity("PartnersAPI.Models.PartnerChatConnectionTable", b =>
-                {
-                    b.HasOne("PartnersAPI.Models.Chat", "Chat")
-                        .WithMany("PartnerChats")
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PartnersAPI.Models.Partner", "Partner")
-                        .WithMany("PartnerChats")
-                        .HasForeignKey("PartnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chat");
-
-                    b.Navigation("Partner");
-                });
-
             modelBuilder.Entity("PartnersAPI.Models.Chat", b =>
                 {
                     b.Navigation("Messages");
-
-                    b.Navigation("PartnerChats");
                 });
 
             modelBuilder.Entity("PartnersAPI.Models.Partner", b =>
                 {
                     b.Navigation("Credentials")
                         .IsRequired();
-
-                    b.Navigation("PartnerChats");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,8 +7,6 @@ namespace PartnersAPI.Models
 		[Key]
 		public int PartnerChatId { get; set; }
 		public int PartnerId { get; set; }
-		public Partner Partner { get; set; } = default!;
 		public int ChatId { get; set; }
-		public Chat Chat { get; set; } = default!;
 	}
 }

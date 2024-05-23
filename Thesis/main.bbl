@@ -1,0 +1,68 @@
+\begin{thebibliography}{McC99}
+
+\bibitem[A.94]{worldWideWeb}
+Berners-Lee T. \& Cailliau R. \& Luotonen A. Nielsen \& H. F. \&~Secret A.
+\newblock The world-wide web. communications of the acm.
+\newblock {\em 37}, 1994.
+
+\bibitem[A.96]{eniacSwitches}
+Marcus M. \&~Akera A.
+\newblock Exploring the architecture of an early machine: the historical relevance of the eniac machine architecture. ieee annals of the history of computing.
+\newblock {\em 18}, 1996.
+
+\bibitem[Bob80]{layeredArchitecure80s}
+Ira P. Goldstein \& Daniel~G. Bobrow.
+\newblock A layered approach to software design.
+\newblock 1980.
+
+\bibitem[Boe06]{boehmb06}
+Barry Boehm.
+\newblock A view of 20th and 21st century software engineering. proceeding of the 28th international conference on software engineering.
+\newblock pages 13--17, 2006.
+
+\bibitem[C.15]{a0compiler}
+Strawn G. \&~Strawn C.
+\newblock Grace hopper: Compilers and cobol. it professional.
+\newblock {\em 17}, 2015.
+
+\bibitem[D.16]{unixRepo}
+Spinellis D.
+\newblock A repository of unix history and evolution. empirical software engineering.
+\newblock {\em 22}, 2016.
+
+\bibitem[Dji68]{firstDefinitionPrinciple}
+Edsger~W. Djikstra.
+\newblock Go to statement considered harmful.
+\newblock {\em Communications of the ACM}, 1968.
+
+\bibitem[J.22]{ritchieJobs}
+Perlow J.
+\newblock Without dennis ritchie, there would be no jobs.
+\newblock 2022.
+
+\bibitem[L.18]{eniacDesign}
+Stuart~B. L.
+\newblock Programming the eniac. proceedings of the ieee.
+\newblock {\em 106}, 2018.
+
+\bibitem[M.88]{arpanetDdn}
+Perry D. G. \& Blumenthal \& S. H. \& Hinden \&~R. M.
+\newblock The arpanet and the darpa internet.
+\newblock {\em Library Hi Tech, 6(2)}, 1988.
+
+\bibitem[McC99]{eniacHistory}
+Scott McCartney.
+\newblock Eniac the triumphs and tragedies of the first computer book.
+\newblock 1999.
+
+\bibitem[N.06]{firstDefinition}
+Bishop J. \&~Horspool N.
+\newblock Cross-platform development: Software that lasts.
+\newblock {\em 39}, 2006.
+
+\bibitem[T.09]{firstDBMS}
+Haigh T.
+\newblock How data got its base: Information storage software in the 1950s and 1960s. ieee annals of the history of computing.
+\newblock {\em 31}, pages 6--25, 2009.
+
+\end{thebibliography}

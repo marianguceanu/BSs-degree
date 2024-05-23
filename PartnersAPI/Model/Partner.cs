@@ -20,7 +20,5 @@ namespace PartnersAPI.Models
 
 		[NotMapped]
 		public virtual Credentials Credentials { get; set; } = default!;
-		[NotMapped]
-		public virtual ICollection<PartnerChatConnectionTable> PartnerChats { get; set; } = default!;
 	}
 }

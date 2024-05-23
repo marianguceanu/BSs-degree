@@ -55,20 +55,58 @@ namespace PartnersAPI.Controllers
 			return Ok(pcs);
 		}
 
-		[HttpPost("{person1Id:int}/{person2Id:int}")]
-		public async Task<IActionResult> Post([FromRoute] int person1Id, [FromRoute] int person2Id)
+		[HttpPost("{type}/{person1Id:int}/{person2Id:int}")]
+		public async Task<IActionResult> Add([FromRoute] string type, [FromRoute] int person1Id, [FromRoute] int person2Id)
 		{
 			// Checking if the partners exist
 			var person1 = await _partnerRepo.GetById(person1Id);
 			var person2 = await _partnerRepo.GetById(person2Id);
-			if (person1 == null)
+			if (person1 == null || person2 == null)
 			{
-				return NotFound(person1Id);
+				return NotFound("One or both of the partners do not exist");
 			}
-			if (person2 == null)
+
+			if (type != "private" && type != "group")
 			{
-				return NotFound(person2Id);
+				return BadRequest("Invalid chat type");
 			}
+
+			// Checking for existing chats, because private chats should not have duplicates
+			if (type == "private")
+			{
+				var allPCs = await _pcRepo.GetAll();
+				foreach (var pc in allPCs)
+				{
+					if (pc.PartnerId == person1.PartnerId)
+					{
+						foreach (var pcSecond in allPCs)
+						{
+							if (pcSecond.PartnerId == person2.PartnerId)
+							{
+								if (pc.ChatId == pcSecond.ChatId)
+								{
+									return BadRequest("Chat already exists");
+								}
+							}
+						}
+					}
+
+					if (pc.PartnerId == person2.PartnerId)
+					{
+						foreach (var pcSecond in allPCs)
+						{
+							if (pcSecond.PartnerId == person1.PartnerId)
+							{
+								if (pc.ChatId == pcSecond.ChatId)
+								{
+									return BadRequest("Chat already exists");
+								}
+							}
+						}
+					}
+				}
+			}
+
 
 			// Creating a new chat
 			var chat = new Chat
@@ -79,11 +117,30 @@ namespace PartnersAPI.Controllers
 			{
 				return BadRequest();
 			}
+
+			var pc1 = new PartnerChatConnectionTable
+			{
+				ChatId = chat.ChatId,
+				PartnerId = person1.PartnerId,
+			};
+			bool isPC1Added = await _pcRepo.Add(pc1);
+
+			var pc2 = new PartnerChatConnectionTable
+			{
+				ChatId = chat.ChatId,
+				PartnerId = person2.PartnerId,
+			};
+
+			bool isPC2Added = await _pcRepo.Add(pc2);
+			if (!isPC1Added || !isPC2Added)
+			{
+				return BadRequest("Could not resolve the connection between the chat and the partner");
+			}
 			return Ok(chat);
 		}
 
 		[HttpPut("addPartnerToChat/{partnerId:int}/{chatId:int}")]
-		public async Task<IActionResult> Put([FromRoute] int partnerId, [FromRoute] int chatId)
+		public async Task<IActionResult> Update([FromRoute] int partnerId, [FromRoute] int chatId)
 		{
 			var partner = await _partnerRepo.GetById(partnerId);
 			if (partner == null)

@@ -1,0 +1,160 @@
+%\documentclass[12pt]{scrreprt}
+\documentclass[12pt]{report} 
+
+% language may be romanian or english (default is english)
+% type may be bachelor or master (default is bachelor)
+\usepackage[language=english, type=bachelor]{style}
+
+%\geometry{a4paper,top=2.5cm,left=3cm,right=2.5cm,bottom=2.5cm}
+%in style
+%controlling the appearance of your headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\begin{document}
+
+\specialization{Computer Science}	
+\title{Separation of concerns in cross-platform development}					   
+\author{Guceanu George - Marian}											
+\supervisor{Lect. Dr. Cojocar Dan}				
+				
+\maketitle
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\pagenumbering{roman} 
+
+\cleardoublepage
+
+
+\par
+The goal of this thesis is to make an overview of cross-platform development. 
+What is the current state of this software development branch, and more importantly what are the main approaches regarding it.
+\par
+The relevance of this subject is marked by the evergrowing technological advancements.
+In the past decade more and more machines and platforms came to life that needed to be interoperable and had to communicate with each other.
+This became a necessity especially because all of them brought alongside different operating systems.
+\par 
+As a consequence, a lot of development platforms were created.
+With the increasing relevance for them, more transpositions of the application were needed.
+It was inconvenient to use an application that is available for only one platform.
+For the software engineers it meant more code bases that needed maintenance and also a lot more learning.
+\par
+I will analyze the evolution of software development, what it meant along the decades, from the earliest days, up to the starting point of cross-platform development.
+This is needed, so we can see the buildup that has been created, turning it into a must-have, rather than a concept.
+Further on, I'll make a case for the current state of cross-platform development.
+What are the main features it provides, the legacies it kept from it's predecessors, how it is used today and what are the most important tools used.
+Then, an analysis over the principle of separating concerns will provide us with the most appreciated features, and see how they align with the needs identified earlier.
+I will do a breakdown of this principle, see how it has been approached already and why it is a global standard.
+Afterwards, I will make some regards towards the impact this principle provides, by overlooking some metrics that should provide empirical data, according to the provided examples.
+
+\vspace{0.5cm}	
+\hrule
+\vspace{0.5cm}	
+%\cleardoublepage
+
+
+
+\tableofcontents
+
+
+\newpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter1_introduction}
+%\addcontentsline{toc}{chapter}{Introducere}
+%\addcontentsline{toc}{chapter}{Introduction}
+
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+\input{chapters/chapter6}
+%\addcontentsline{toc}{chapter}{Concluzii}
+%\addcontentsline{toc}{chapter}{Conclusions}
+
+\bibliography{references}
+
+\end{document}
+%\documentclass[12pt]{scrreprt}
+\documentclass[12pt]{report} 
+
+% language may be romanian or english (default is english)
+% type may be bachelor or master (default is bachelor)
+\usepackage[language=english, type=bachelor]{style}
+
+%\geometry{a4paper,top=2.5cm,left=3cm,right=2.5cm,bottom=2.5cm}
+%in style
+%controlling the appearance of your headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+\begin{document}
+
+\specialization{Computer Science}	
+\title{Separation of concerns in cross-platform development}					   
+\author{Guceanu George - Marian}											
+\supervisor{Lect. Dr. Cojocar Dan}				
+				
+\maketitle
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\pagenumbering{roman} 
+
+\cleardoublepage
+
+
+\par
+The goal of this thesis is to make an overview of cross-platform development. 
+What is the current state of this software development branch, and more importantly what are the main approaches regarding it.
+\par
+The relevance of this subject is marked by the evergrowing technological advancements. In the past decade more and more machines and platforms came to life that needed to be interoperable and had to communicate with each other. This became a necessity especially because all of them brought alongside different operating systems.
+\par 
+As a consequence, a lot of development platforms were created. With the increasing relevance for them, more transpositions of the application were needed. It was inconvenient to use an application that is available for only one platform. For the software engineers it meant more code bases that needed maintenance and also a lot more learning.
+\par
+I will analyze the evolution of software development, what it meant along the decades, from the earliest days, up to the starting point of cross-platform development. This is needed, so we can see the buildup that has been created, turning it into a must-have, rather than a concept. Further on, I'll make a case for the current state of cross-platform development. What are the main features it provides, the legacies it kept from it's predecessors, how it is used today and what are the most important tools used. Then, an analysis over the principle of separating concerns will provide us with the most appreciated features, and see how they align with the needs identified earlier. I will do a breakdown of this principle, see how it has been approached already and why it is a global standard. Afterwards, I will make some regards towards the impact this principle provides, by overlooking some metrics that should provide empirical data, according to the provided examples.
+
+\vspace{0.5cm}	
+\hrule
+\vspace{0.5cm}	
+%\cleardoublepage
+
+
+
+\tableofcontents
+
+
+\newpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter1_introduction}
+%\addcontentsline{toc}{chapter}{Introducere}
+%\addcontentsline{toc}{chapter}{Introduction}
+
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+\input{chapters/chapter6}
+%\addcontentsline{toc}{chapter}{Concluzii}
+%\addcontentsline{toc}{chapter}{Conclusions}
+
+\bibliography{references}
+
+\end{document}
+

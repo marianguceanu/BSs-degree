@@ -57,7 +57,6 @@ namespace PartnersAPI.Controllers
 				ContactPerson = partner.ContactPerson,
 				Email = partner.Email,
 				Credentials = default!,
-				PartnerChats = default!
 			});
 			if (!isAdded)
 			{

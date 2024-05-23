@@ -25,17 +25,6 @@ namespace PartnersAPI.DataContext
 				.WithMany(c => c.Messages)
 				.HasForeignKey(m => m.ChatId)
 				.OnDelete(DeleteBehavior.Cascade);
-
-			modelBuilder.Entity<PartnerChatConnectionTable>()
-				.HasOne(pc => pc.Partner)
-				.WithMany(p => p.PartnerChats)
-				.HasForeignKey(pc => pc.PartnerId);
-
-			modelBuilder.Entity<PartnerChatConnectionTable>()
-				.HasOne(pc => pc.Chat)
-				.WithMany(c => c.PartnerChats)
-				.HasForeignKey(pc => pc.ChatId);
-
 		}
 	}
 }

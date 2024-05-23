@@ -95,7 +95,7 @@ namespace PartnersAPI.Controllers
 			return Ok(message);
 		}
 
-		[HttpPut("id:int")]
+		[HttpPut("{id:int}")]
 		public async Task<IActionResult> Put([FromBody] MessagePostPutDTO messageDTO, [FromRoute] int id)
 		{
 			var message = new Message
