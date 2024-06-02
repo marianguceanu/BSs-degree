@@ -1,19 +1,140 @@
 \chapter{Current state of cross-platform development}
+
 \section{Overview}
+
 Cross-platform software is designed to operate on multiple computing platforms, such as different operating systems (Windows, macOS, Linux) or device types (desktop computers, mobile devices, web browsers).
 The primary goal of cross-platform development is to write a single codebase that can run on various platforms with minimal modifications, thereby reducing development time and cost while maximizing reach and usability.
 Now we will take a look at some key-features of this type of development.
+
 \subsection{Code Reusability}
-This development area can be best categorized into two two types of codebases: single codebase and shared libraries and frameworks.
+This development area can be best categorized into two types of codebases: single codebase and shared libraries and frameworks.
+
 \par
 Developing with a single codebase means that the same code can be reused across multiple platforms, reducing duplication and making maintenance easier.
 Also, due to this approach, the need for dependency checking is eliminated, as it is one of the most daunting tasks regarding cross-platform development.
 A good scenario, for example, is to know that your application's server is dependent on an Object-Relational Mapping (ORM) framework, or a wrapper for one to be more specific, and to find that it is being discontinued.
-This is where single codebase comes in, as it is not dependent  
+This is where single codebase comes in, as it is not dependent on a framework, a package or a library, but on the code itself, thus making it more reliable and easier to maintain. 
+The disadvantage of this approach is that it can be more time-consuming and expensive to develop, as it requires more effort to write and test the code.
+
+\par
+Utilizing shared libraries and frameworks, such as .NET Core, Flutter, or JavaScript frameworks (e.g., React Native, Electron), helps streamline development.
+These libraries and frameworks provide pre-built components and tools that can be used across multiple platforms, reducing the amount of code that needs to be written and tested.
+However, the downside of this approach is that it can be more challenging to maintain and update the codebase, as changes to the library or framework may require modifications to the application code.
+In addition, the performance of the application may be affected by the overhead of the library or framework.
+
+\subsection{Platform Abstraction}
+Platform abstraction refers to building an abstraction layer that isolates the application logic from the platform-specific code (e.g. Kernel interactions).
+It is necessary, due to the multitude of platforms that exist today, each with its own set of features and requirements.
+
+\par
+Abstraction layers allow developers to write platform-agnostic code that interfaces with platform-specific functionality through standardized APIs.
+They are also one of the core features of separating concerns, as they provide a clear separation between the application logic and the platform-specific code.
+This allows developers to focus on writing the core functionality of the application without having to worry about the underlying platform details.
+In addition, abstraction layers can help improve code maintainability and portability, as changes to the platform-specific code can be isolated and managed more easily.
+
+\par
+Middleware provides a layer between the application and the operating system, handling differences in platform-specific operations.
+It can be used to abstract away platform-specific details, such as file system access, network communication, and user interface interactions.
+Middleware can also provide additional functionality, such as caching, logging, and error handling, that can be shared across multiple applications.
+However, middleware can introduce additional complexity and overhead, as it adds an extra layer of abstraction between the application and the platform.
+
+\subsection{Conditional Compilation and Code}
+Conditional compilation is a technique used to include or exclude code based on the target platform or configuration.
+This involves writing code that compiles differently depending on the target platform, often using preprocessor directives or build configurations.
+Sometimes, platform-specific code is necessary to handle unique features or limitations of each platform.
+This is necessary especially on the application's user interface, as each platform has its own design guidelines and user experience expectations.
 
 
-\section{Lack of separartion of concerns}
-\section{Legacy features that are present today}
-\section{Tools and techniques}
+
+\section{Legacy paradigms that are present today}
+We will take a look at all the features that cross-platform development kept from its predecessors, and see how they align with the needs identified earlier.
+
+\par
+Despite the evolution of software development practices, several legacy design principles have remained relevant and continue to be applied in modern cross-platform development. 
+These principles provide a foundation for creating robust, maintainable, and scalable applications. 
+Here are some key legacy design principles still in use today.
+
+\subsection{Separation of Concerns} 
+This sounds confusing now, but the principle is implemented in a very shallow and basic way, as it is not a global standard.
+This can be observed in the lower levels of the application, where the concerns are separated into platform-specific and platform-agnostic code.
+However, this separation is not always clear or consistent, as platform-specific code may be mixed with platform-agnostic code, leading to dependencies and coupling between different components.
+This can make it difficult to maintain and update the codebase, as changes to one component may require modifications to other components as well.
+It is also worth mentioning that the principle is not used as intended in the higher levels of the application, where the concerns are mixed together, leading to increased complexity.
+
+\subsection{Single Responsibility Principle (SRP)}
+The Single Responsibility Principle (SRP) states that a class should have only one reason to change.
+This principle is relevant in cross-platform development, as it helps to create more modular and maintainable code.
+By separating concerns into individual classes or components, developers can isolate changes to specific areas of the codebase.
+\par
+This makes it easier to understand, test, and modify the code, as each component has a clear and well-defined purpose.
+However, the SRP is not always followed in cross-platform development, as classes or components may have multiple responsibilities.
+
+\subsection{DRY (Don't Repeat Yourself)}
+The DRY principle states that code should not be duplicated, but instead should be reused or abstracted into shared components.
+This principle is relevant in cross-platform development, as it helps to reduce redundancy.
+By reusing code across multiple platforms, developers can save time and effort, as changes only need to be made in one place.
+However, the DRY principle is not always followed in cross-platform development, as code duplication can occur due to platform-specific requirements or limitations.
+
+\subsection{Open/Closed Principle}
+The Open/Closed Principle states that classes should be open for extension but closed for modification.
+This principle is relevant in cross-platform development, as it helps to create more flexible and maintainable code.
+By designing classes to be extensible, developers can add new functionality without modifying existing code.
+This makes it easier to adapt the codebase to changing requirements or new platforms.
+
+\subsection{Liskov Substitution Principle}
+The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+This principle is relevant in cross-platform development, as it helps to ensure that code is reusable and interoperable across different platforms.
+By designing classes to be substitutable, developers can create more flexible and scalable code.
+However, the Liskov Substitution Principle is not always followed in cross-platform development, as platform-specific code may not be interchangeable with platform-agnostic code.
+
+\subsection{Dependency Injection (DI)}
+Dependency Injection (DI) is a design pattern that allows objects to be injected into a class rather than created internally.
+This pattern is relevant in cross-platform development, as it helps to decouple components and reduce dependencies.
+By injecting dependencies into classes, developers can create more modular and testable code.
+However, DI is not always used in cross-platform development, as it can add complexity and overhead to the codebase.
+
+\subsection{Lack of separation of concerns}
+In order to understand why the lack of this principle is an issue, we should take a brief look at the predecessors of cross-platform development.
+The first software applications were developed as monolithic systems, where all the code was tightly coupled and interdependent.
+This made it difficult to make changes or updates to the codebase, as any modification could have unintended consequences elsewhere in the application.
+
+\par
+Also, due to this, a modification on a base layer would imply a cascade of changes on the upper layers, thus making the maintenance process a lot more difficult.
+As software systems grew in size and complexity, it became clear that a more modular and flexible approach was needed to manage the codebase effectively.
+This is where the separation of concerns principle comes in, as it provides a clear and structured way to organize the codebase and manage dependencies between different components.
+
+\section{Tools}
+By tools, we refer to the software and libraries that are used in cross-platform development.
+This includes frameworks, libraries, and development environments that help streamline the development process and provide essential functionality for building cross-platform applications.
+Here are some of the most popular tools used in cross-platform development today.
+
+\subsection{Flutter}
+Flutter is an open-source UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
+It provides a rich set of pre-built components and tools that can be used to create responsive and interactive user interfaces.
+Flutter uses the Dart programming language, which is designed for building modern, object-oriented applications.
+It also provides a hot reload feature that allows developers to quickly see changes to the code reflected in the application without restarting the app.
+It is a popular choice for building cross-platform applications due to its ease of use, performance, and flexibility.
+By being very easily adaptable to the separation of concerns principle, as it provides a clear separation between the application logic and the user interface, this would be a good choice for a cross-platform development tool, hence the use of this tool for the case study.
+Distinct features of Flutter include:
+\begin{itemize}
+    \item Hot reload
+    \item Rich set of pre-built components
+    \item Support for mobile, web, and desktop platforms
+    \item Dart programming language, designed for building modern, object-oriented applications, and also very easy to learn.
+\end{itemize}
+
+\subsection{React Native}
+React Native is an open-source framework for building natively compiled applications for mobile devices from a single codebase.
+It uses the React JavaScript library to create user interfaces and provides a rich set of pre-built components and tools for building cross-platform applications.
+React Native is a popular choice for building mobile applications due to its ease of use, performance, and flexibility.
+It also provides the hot reload feature aforementioned. 
+React Native is a good choice for building cross-platform applications due to its support for a wide range of platforms and devices.
+
+\subsection{Xamarin}
+Xamarin is an open-source framework for building natively compiled applications for mobile devices from a single codebase.
+It uses the C\# programming language and the .NET framework to create cross-platform applications.
+Xamarin provides a rich set of pre-built components and tools for building mobile applications, including support for iOS, Android, and Windows devices.
+It also provides a hot reload feature that allows developers to quickly see changes to the code reflected in the application without restarting the app.
+
+
 \label{chap:ch4}
-

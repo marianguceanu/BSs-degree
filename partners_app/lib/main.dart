@@ -1,69 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:partners_app/providers/chat_provider.dart';
+import 'package:partners_app/providers/messages_provider.dart';
+import 'package:partners_app/providers/partners_provider.dart';
+import 'package:partners_app/services/chat_service.dart';
+import 'package:partners_app/services/messages_service.dart';
+import 'package:partners_app/services/partner_service.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/login_page.dart';
-import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+          create: (_) => ChatProvider(chatService: ChatService())),
+      ChangeNotifierProvider(
+          create: (_) =>
+              MessagesProvider(messagesApiService: MessagesApiService())),
+      ChangeNotifierProvider(
+          create: (_) =>
+              PartnersProivders(partnersApiService: PartnerApiService()))
+    ],
+    child: const PartnersApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PartnersApp extends StatelessWidget {
+  const PartnersApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue.shade900),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        widthFactor: 4.0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FloatingActionButton(
-                onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                      )
-                    },
-                child: const Text('Login')),
-            FloatingActionButton(
-                onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()),
-                      )
-                    },
-                child: const Text('Home Page')),
-          ],
-        ),
-      ),
+      home: const LoginPage(),
     );
   }
 }
