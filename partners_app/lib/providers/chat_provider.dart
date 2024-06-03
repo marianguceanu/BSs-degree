@@ -15,7 +15,7 @@ class ChatProvider extends ChangeNotifier {
   int get partnerId => _partnerId;
 
   Future<void> initChats() async {
-    chats = await chatService.getChats();
+    chats = await chatService.getChats() ?? [];
     _partnerId = await chatService.getPartnerId();
     notifyListeners();
   }

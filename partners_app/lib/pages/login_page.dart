@@ -19,8 +19,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<int> _login() async {
     User user = User(
-      username: _usernameController.text,
-      password: _passwordController.text,
+      username: _usernameController.value.text,
+      password: _passwordController.value.text,
     );
     return await partnerService.login(user);
   }
@@ -86,10 +86,12 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       // Username text field
                       CustomTextField(
-                          controller: _usernameController,
-                          label: 'Username',
-                          hint: 'Enter your username',
-                          isTextObscured: false),
+                        controller: _usernameController,
+                        label: 'Username',
+                        hint: 'Enter your username',
+                        isTextObscured: false,
+                        icon: const Icon(Icons.person),
+                      ),
                       const SizedBox(height: 25),
 
                       // Password text field
@@ -98,13 +100,18 @@ class _LoginPageState extends State<LoginPage> {
                         label: 'Password',
                         hint: 'Enter your password',
                         isTextObscured: true,
+                        icon: const Icon(Icons.lock),
                       ),
                       const SizedBox(height: 25),
 
                       // Login button
                       FloatingActionButton(
-                          onPressed: () => {_loginProcess(context)},
-                          child: const Text('Login')),
+                        onPressed: () => {_loginProcess(context)},
+                        child: const SizedBox(
+                          width: 200,
+                          child: Icon(Icons.login),
+                        ),
+                      ),
 
                       // Go to sign up page
                       Row(

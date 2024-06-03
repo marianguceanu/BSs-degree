@@ -8,14 +8,17 @@ class MessagesList extends StatefulWidget {
   const MessagesList({
     super.key,
     required this.chatId,
+    required this.scrollController,
   });
   final int chatId;
+  final ScrollController scrollController;
 
   @override
   State<MessagesList> createState() => _MessagesListState();
 }
 
-class _MessagesListState extends State<MessagesList> {
+class _MessagesListState extends State<MessagesList>
+    with WidgetsBindingObserver {
   int partnerId = 0;
 
   Future<void> _initPartnerId() async {
@@ -42,6 +45,7 @@ class _MessagesListState extends State<MessagesList> {
       builder: (context, messagesProvider, child) {
         messagesProvider.initMessages(widget.chatId);
         return ListView.builder(
+          controller: widget.scrollController,
           itemCount: messagesProvider.messages.length,
           itemBuilder: (context, index) {
             return Container(

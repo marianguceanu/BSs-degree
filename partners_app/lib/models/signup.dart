@@ -1,42 +1,47 @@
-class Partner {
-  int id;
+class SignUp {
   String businessName;
   String address;
   String phoneNumber;
   String contactPerson;
   String email;
   int reach;
+  String username;
+  String password;
 
-  Partner(
-      {required this.id,
-      required this.businessName,
-      required this.address,
-      required this.phoneNumber,
-      required this.contactPerson,
-      required this.email,
-      required this.reach});
+  SignUp({
+    required this.businessName,
+    required this.address,
+    required this.phoneNumber,
+    required this.contactPerson,
+    required this.email,
+    required this.reach,
+    required this.username,
+    required this.password,
+  });
 
-  factory Partner.fromJson(Map<String, dynamic> json) {
-    return Partner(
-      id: json['partner_id'],
+  factory SignUp.fromJson(Map<String, dynamic> json) {
+    return SignUp(
       businessName: json['business_name'],
       address: json['address'],
       phoneNumber: json['phone_number'],
       contactPerson: json['contact_person'],
       email: json['email'],
       reach: json['reach'],
+      username: json['username'],
+      password: json['password'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'partner_id': id,
       'business_name': businessName,
       'address': address,
       'phone_number': phoneNumber,
       'contact_person': contactPerson,
       'email': email,
       'reach': reach,
+      'username': username,
+      'password': password,
     };
   }
 }

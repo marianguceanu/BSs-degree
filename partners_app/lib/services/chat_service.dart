@@ -6,7 +6,7 @@ import 'package:partners_app/models/chat.dart';
 import 'package:partners_app/services/storage_service.dart';
 
 class ChatService {
-  Future<List<Chat>> getChats() async {
+  Future<List<Chat>?> getChats() async {
     // Building the get chats URL
     const String url =
         "${UrlConstants.base}${UrlConstants.user}/get${UrlConstants.chats}";
@@ -20,7 +20,8 @@ class ChatService {
     });
 
     if (response.statusCode == 200) {
-      List<dynamic> body = jsonDecode(response.body);
+      List<dynamic>? body = jsonDecode(response.body);
+      if (body == null) return null;
       List<Chat> chats = body.map((chat) => Chat.fromJson(chat)).toList();
       return chats;
     } else {

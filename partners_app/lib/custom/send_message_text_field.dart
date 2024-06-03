@@ -9,11 +9,13 @@ class SendMessageTextField extends StatefulWidget {
     required this.controller,
     required this.chatId,
     required this.senderId,
+    required this.onTap,
   });
 
   final TextEditingController controller;
   final int chatId;
   final int senderId;
+  final Function onTap;
 
   @override
   State<SendMessageTextField> createState() => _SendMessageTextFieldState();
@@ -48,6 +50,9 @@ class _SendMessageTextFieldState extends State<SendMessageTextField> {
               icon: const Icon(Icons.send)),
         ),
         controller: widget.controller,
+        onTap: () {
+          widget.onTap();
+        },
       );
     });
   }

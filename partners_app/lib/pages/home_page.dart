@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: const Text('Chat Page')),
         body: Center(
           child: Column(
             children: <Widget>[
@@ -27,10 +28,18 @@ class _HomePageState extends State<HomePage> {
                 return ListView.builder(
                     itemCount: chatProvider.chats.length,
                     itemBuilder: (context, index) {
-                      return ChatWithPartner(
-                        chat: chatProvider.chats[index],
-                        partnerId: chatProvider.partnerId,
-                      );
+                      return Padding(
+                          padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(chatProvider.chats[index].chatName),
+                              ChatWithPartner(
+                                chat: chatProvider.chats[index],
+                                partnerId: chatProvider.partnerId,
+                              )
+                            ],
+                          ));
                     });
               })),
             ],

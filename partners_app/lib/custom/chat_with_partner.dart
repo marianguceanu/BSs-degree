@@ -31,7 +31,13 @@ class _ChatWithPartnerState extends State<ChatWithPartner> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+        style: ButtonStyle(
+          foregroundColor:
+              MaterialStateProperty.all(Theme.of(context).primaryColor),
+          backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
+          minimumSize: MaterialStateProperty.all(const Size(50, 20)),
+        ),
         onPressed: () => {_goToChatPage(context)},
-        child: Text(widget.chat.chatName));
+        child: const Text('Go'));
   }
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:partners_app/constants/api_urls.dart';
 import 'package:partners_app/models/partner.dart';
+import 'package:partners_app/models/signup.dart';
 import 'package:partners_app/models/user.dart';
 import 'package:partners_app/services/storage_service.dart';
 
@@ -28,6 +29,36 @@ class PartnerApiService {
 
     // Return the status code
     return response.statusCode;
+  }
+
+  Future<int> signUp(SignUp signupBody) async {
+    // Building the signup URL
+    const String url =
+        UrlConstants.base + UrlConstants.user + UrlConstants.signup;
+
+    // Making the POST request
+    http.Response response =
+        await http.post(Uri.parse(url), body: jsonEncode(signupBody));
+
+    // Return the status code
+    return response.statusCode;
+  }
+
+  Future<List<Partner>> topFive() async {
+    // Building the top five URL
+    const String url =
+        UrlConstants.base + UrlConstants.partners + UrlConstants.topFive;
+
+    // Getting the cookies
+    String? cookies = await storageService.read(cookieKey);
+
+    http.Response response = await http.get(
+      Uri.parse(url),
+      headers: {'cookie': cookies ?? ''},
+    );
+
+    List<dynamic> partners = jsonDecode(response.body);
+    return partners.map((partner) => Partner.fromJson(partner)).toList();
   }
 
   Future<int> validateToken() async {
@@ -62,9 +93,8 @@ class PartnerApiService {
     if (response.statusCode == 200) {
       List<dynamic> partners = jsonDecode(response.body);
       return partners.map((partner) => Partner.fromJson(partner)).toList();
-    } else {
-      return [];
     }
+    return [];
   }
 
   Future<int> getPartnerId() async {
@@ -82,9 +112,43 @@ class PartnerApiService {
       Map<String, dynamic> resp = jsonDecode(response.body);
       await storageService.write(partnerIdKey, resp['partner_id'].toString());
       return resp['partner_id']!;
-    } else {
-      return 0;
     }
+    return 0;
+  }
+
+  Future<Partner> getPartnerById(int id) async {
+    String url = '${UrlConstants.base}${UrlConstants.partners}/$id';
+    String? cookie = await storageService.read(cookieKey);
+    http.Response response = await http.get(Uri.parse(url), headers: {
+      'cookie': cookie ?? '',
+    });
+
+    if (response.statusCode == 200) {
+      return Partner.fromJson(jsonDecode(response.body));
+    }
+    return Partner(
+        id: 0,
+        businessName: '',
+        address: '',
+        phoneNumber: '',
+        contactPerson: '',
+        email: '',
+        reach: 0);
+  }
+
+  Future<int> updatePartner(Partner partner) async {
+    String url = '${UrlConstants.base}${UrlConstants.partners}';
+    String? cookie = await storageService.read(cookieKey);
+    http.Response response = await http.put(Uri.parse(url),
+        headers: {
+          'cookie': cookie ?? '',
+        },
+        body: jsonEncode(partner.toJson()));
+
+    if (response.statusCode == 200) {
+      return response.statusCode;
+    }
+    return 0;
   }
 }
 
