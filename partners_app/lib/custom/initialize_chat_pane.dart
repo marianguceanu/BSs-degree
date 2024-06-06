@@ -20,35 +20,31 @@ class InitializeChatPane extends StatefulWidget {
 }
 
 class _InitializeChatPaneState extends State<InitializeChatPane> {
-  bool _isCreatingChat = false;
-
   @override
   Widget build(BuildContext context) {
-    return _isCreatingChat
-        ? const CircularProgressIndicator()
-        : Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Name: ${widget.partnerName}'),
-                  Text('Reach: ${widget.partnerReach}'),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  setState(() {
-                    _isCreatingChat = true;
-                  });
-                  await widget.createChat();
-                  setState(() {
-                    _isCreatingChat = false;
-                  });
-                },
-                child: const Text('Start Chat'),
-              ),
-            ],
-          );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Name: ${widget.partnerName}'),
+            Text('Reach: ${widget.partnerReach}'),
+          ],
+        ),
+        ElevatedButton(
+          onPressed: () {
+            widget.createChat().then(() {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Chat started'),
+                ),
+              );
+            });
+          },
+          child: const Text('Start Chat'),
+        ),
+      ],
+    );
   }
 }

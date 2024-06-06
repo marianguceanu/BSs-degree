@@ -6,87 +6,10 @@
 \par
 In this chapter, I will elaborate on the progresses made throughout the decades regarding designing software and the evolution of hardware, and see how we ended up with cross-platform development as a necessity.
 
-\section{The 1940-1970 timeline}
-
-\subsection{The 1940's}
-
-\par
-During this decade, the "Big Bang" happened.
-John Mauchly and Presper Eckert, designed and built the "first digital, electronic computer"\cite{eniacHistory} and came up with the legendary ENIAC.
-A computer that was designed with a military goal in mind.
-ENIAC was developed at the University of Pennsylvania, being funded by the U.S.
-Army, mainly because the teams at the other Universities were not able to keep up with the Army's needs for computing artillery firing tables "for the war 
-effort".\cite{eniacDesign}
-
-\par
-This computer revolutionized computations as it was the first machine to ever allow any kind of stored procedures, by introducing plugboard wiring and portable function tables in favor of the previous punch cards.
-Plugboards were connecting switches, which were "capable of storing one complex instruction for the use of the accumulator".\cite{eniacSwitches}
-This meant that, the entirety of the computation was digital, and reconfigurable.
-Unfortunately, it also meant that, between each run or change, the computer had to be shut down so the wiring could be redone.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=0.5]{pictures/ENIAC_plugboard_switches.jpg}
-    \caption{ENIAC plugboards and switches}
-    \label{eniacPlugboardSwitches}
-\end{figure}
-
-\par
-But, even so, a good algorithm structure was needed, that being mainly because 'these architectural differences lead to some differences in the approach needed for programming'\cite{eniacDesign}.
-
-So the operators of the machine came upon some design and operation principles, that are still observable in the modern world, such as 'Dataflow', 'Parallelism' and 'Looping and branching' \cite{eniacDesign}
-
-\subsection{The 1950's}
-
-\par
-Software engineering and designing became a subject of discussion as early as the 1950's.
-During those days, this terminology meant something entirely different than what we know of today.
-The quote that depicted it quite accurate is: `\textit{Software engineering is like hardware engineering}`\cite{boehmb06}.
-This is mainly because software was regarded as building a machine: you embody a plan, manually check it and then get it running on the computer.
-
-\par
-The biggest invention of this decade was the concept of storing, organizing and manipulating data.
-It is during these times that it got a name, "data processing"\cite{firstDBMS}.
-It is also now when the storage, retrieval, and updating of data has been a "key requirement for most computer applications"\cite{firstDBMS}.
-These are things that followed up and evolved into the modern world, and they can be observable as most up-to-date applications require enormous data volumes.
-Data started to play an important role.
-It was regarded as one of the building blocks of applications back then.
-This is also another pattern that is kept into the modern development world.
-
-\par
-In this same decade, more specifically in 1952, the first compiler was made, for the A-0 system.
-This compiler was introduced and put into practice by one of the founding figures of the programming field, that being Grace Hopper.
-This represented a turning point, as she proved that computers should understand "human-like" languages\cite{a0compiler}, not the other way around.
-Now the tool of software became a much more teachable subject, and had the potential of turning to be more at-hand for everybody.
-In 1953 she developed A-2, which is considered to be the first open-source piece of software ever.
-That is due to the fact that its source code was given to the customers and they were encouraged to send in possible improvements.
-
-\par
-The first commercially-available compiler was put on the market not that later on.
-It is the FORTRAN, "formula translator"\cite{a0compiler}, compiler that was developed by IBM in 1957, for the 704 computer.
-It is now that we can see a mould for software.
-During the same decade, the first pieces of both open-source and closed-source software were developed and put on the market.
-
-\subsection{The 1960's}
-During this time period, the machines got a bit more user friendly and code became easily replaceable.
-This turned software into something far different to hardware.
-COBOL is now introduced to the market, and it made a case for itself.
-It is the first programming language that was considered easy to use and read, and that introduced the concept of machine abstraction.
-This meant that it did not require a dedicated machine to run.
-It was, in a very abstract and distant way, the first piece of cross-platform software.
-
-\par
-Now, the ability to rewrite code enabled developers to turn towards a "code and fix" approach\cite{boehmb06}.
-This meant that coding was something that did not require as much manual calculations, and that can be thought of and corrected along the way.
-Not only that, but it is the first time during this decade that a problem was eradicated: having exact hardware in order to collaborate on development.
-This is considered to be a menial job for the modern programmers, but during those times it was a long due issue.
-
-\par
-This is one of the biggest turning points in software design, as it allowed for a practice that is still put to good use today.
-Correction of code, be it from a logical or opinionated point of view, during development lead to branching and forking, tools that are still used in modern development.
 
 \section{The 1970 - 1990 timeline}
 
-\subsection{The 1970's}
+\subsection{The 1970s}
 This decade is perhaps the most important step in software development.
 This is the decade that made modern computing the thing that we know and love.
 In 1972, Dennis M.
@@ -113,7 +36,7 @@ A part of the legacy assembly source code of UNIX is still on GitHub, at the rep
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.5]{pictures/unix_repo.png}
-    \caption{TODO:change to white theme Repository containing the assembly source code of UNIX}
+    \caption{Assembly source code of UNIX on GitHub}
     \label{unixRepo}
 \end{figure}
 

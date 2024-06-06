@@ -7,10 +7,12 @@ class ChatWithPartner extends StatefulWidget {
     super.key,
     required this.chat,
     required this.partnerId,
+    required this.chatName,
   });
 
   final Chat chat;
   final int partnerId;
+  final String chatName;
 
   @override
   State<ChatWithPartner> createState() => _ChatWithPartnerState();
@@ -30,14 +32,25 @@ class _ChatWithPartnerState extends State<ChatWithPartner> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return IconButton(
         style: ButtonStyle(
           foregroundColor:
               MaterialStateProperty.all(Theme.of(context).primaryColor),
-          backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-          minimumSize: MaterialStateProperty.all(const Size(50, 20)),
         ),
         onPressed: () => {_goToChatPage(context)},
-        child: const Text('Go'));
+        icon: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+            ),
+            const SizedBox(width: 10),
+            const Icon(Icons.chat),
+            const SizedBox(width: 20),
+            Text(widget.chatName),
+          ],
+        ));
+    // child:
   }
 }

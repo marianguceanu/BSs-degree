@@ -5,7 +5,7 @@ class UrlConstants {
   // Determine wheter the device is mobile or browser
 
   // 127.0.0.1:8080
-  static const String base = "http://10.0.2.2:8080";
+  static const String base = "http://127.0.0.1:8080";
   static const String user = "/user";
   static const String login = "/login";
   static const String signup = "/signup";

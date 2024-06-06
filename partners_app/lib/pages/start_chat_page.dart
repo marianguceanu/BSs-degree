@@ -29,48 +29,52 @@ class _StartChatPageState extends State<StartChatPage> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
-        child: ElevatedButton(onPressed: () async {
-          // Start chat
-        }, child: Consumer<PartnersProivders>(
-          builder: (context, partnersProvider, child) {
-            partnersProvider.initPartners();
-            return ListView.builder(
-                itemCount: partnersProvider.partners.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Consumer<ChatProvider>(
-                          builder: (context, chatProvider, child) {
-                        return InitializeChatPane(
-                          partnerName:
-                              partnersProvider.partners[index].businessName,
-                          partnerReach: partnersProvider.partners[index].reach,
-                          partnerId: widget.partnerId,
-                          createChat: () async {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EnterChatNamePopup(
-                                          controller: _chatNameController,
-                                          createChatCallback: () {
-                                            chatProvider.addChat(
-                                                widget.partnerId,
-                                                partnersProvider
-                                                    .partners[index].id,
-                                                _chatNameController.value.text);
-                                          },
-                                        )));
-                            // Start chat
-                            _chatNameController.clear();
-                          },
-                        );
-                      }),
-                      const SizedBox(height: 15),
-                    ],
-                  );
-                });
-          },
-        )),
+        child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            // Start chat
+            child: Consumer<PartnersProivders>(
+              builder: (context, partnersProvider, child) {
+                partnersProvider.initPartners();
+                return ListView.builder(
+                    itemCount: partnersProvider.partners.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Consumer<ChatProvider>(
+                              builder: (context, chatProvider, child) {
+                            return InitializeChatPane(
+                              partnerName:
+                                  partnersProvider.partners[index].businessName,
+                              partnerReach:
+                                  partnersProvider.partners[index].reach,
+                              partnerId: widget.partnerId,
+                              createChat: () async {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            EnterChatNamePopup(
+                                              controller: _chatNameController,
+                                              createChatCallback: () {
+                                                chatProvider.addChat(
+                                                    widget.partnerId,
+                                                    partnersProvider
+                                                        .partners[index].id,
+                                                    _chatNameController
+                                                        .value.text);
+                                              },
+                                            )));
+                                // Start chat
+                                _chatNameController.clear();
+                              },
+                            );
+                          }),
+                          const SizedBox(height: 15),
+                        ],
+                      );
+                    });
+              },
+            )),
       ),
     );
   }

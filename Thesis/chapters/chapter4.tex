@@ -2,8 +2,10 @@
 
 \section{Overview}
 
-Cross-platform software is designed to operate on multiple computing platforms, such as different operating systems (Windows, macOS, Linux) or device types (desktop computers, mobile devices, web browsers).
-The primary goal of cross-platform development is to write a single codebase that can run on various platforms with minimal modifications, thereby reducing development time and cost while maximizing reach and usability.
+Cross-platform software is designed to operate on multiple computing platforms, 
+such as different operating systems (Windows, macOS, Linux) or device types (desktop computers, mobile devices, web browsers).
+The primary goal of cross-platform development is to write a single codebase that can run on various platforms with minimal modifications, 
+thereby reducing development time and cost while maximizing reach and usability.
 Now we will take a look at some key-features of this type of development.
 
 \subsection{Code Reusability}
@@ -13,7 +15,8 @@ This development area can be best categorized into two types of codebases: singl
 Developing with a single codebase means that the same code can be reused across multiple platforms, reducing duplication and making maintenance easier.
 Also, due to this approach, the need for dependency checking is eliminated, as it is one of the most daunting tasks regarding cross-platform development.
 A good scenario, for example, is to know that your application's server is dependent on an Object-Relational Mapping (ORM) framework, or a wrapper for one to be more specific, and to find that it is being discontinued.
-This is where single codebase comes in, as it is not dependent on a framework, a package or a library, but on the code itself, thus making it more reliable and easier to maintain. 
+This is where single codebase comes in, as it is not dependent on a framework, a package or a library, 
+but on the code itself, thus making it more reliable and easier to maintain. 
 The disadvantage of this approach is that it can be more time-consuming and expensive to develop, as it requires more effort to write and test the code.
 
 \par
@@ -101,7 +104,146 @@ This made it difficult to make changes or updates to the codebase, as any modifi
 \par
 Also, due to this, a modification on a base layer would imply a cascade of changes on the upper layers, thus making the maintenance process a lot more difficult.
 As software systems grew in size and complexity, it became clear that a more modular and flexible approach was needed to manage the codebase effectively.
-This is where the separation of concerns principle comes in, as it provides a clear and structured way to organize the codebase and manage dependencies between different components.
+This is where the separation of concerns principle comes in, 
+as it provides a clear and structured way to organize the codebase and manage dependencies between different components.
+
+\section{Frequently used design patterns}
+\par
+In this section, I will analyze the design patterns that are found most commonly in cross-platform development. 
+I will also do a more thorough analysis on the design patterns of my choice for the companion app that will support this thesis.
+
+\subsection{MVC}
+The Model-View-Controller (MVC) design pattern is a software architecture pattern that separates an application into three main concerns: 
+the Model, the View, and the Controller.
+This is a design pattern that is highly compatible with most REST APIs, as it provides a clear separation between the application logic and the user interface.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{pictures/mvc.png}
+    \caption{MVC pattern visualized, source: \href{https://pushkarbaichwal7937.medium.com/model-view-controller-in-java-e57b1f754c9e}{Pushar Baichwal}}
+    \label{mvcExample}
+\end{figure}
+\par
+The Model concern represents the data and business logic of the application.
+It encapsulates the application's data and the access to the said data.
+It is tightly coupled with the View concern, as it notifies it for any changes in data.
+\par
+The View concern deals with the UI (User Interface) of our application.
+Its role is to display the data and handle user interactions.
+Because of this, it is tightly coupled to the Controller concern.
+\par
+The Controller concern is used as a connecting piece between the View and the Model concerns.
+It is the layer that interprets the user input and makes calls to the model objects.
+Its main purpose is to update the Model and select the proper View display.
+
+
+\subsection{Singleton}
+Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+The Singleton pattern solves two problems at the same time, violating the Single Responsibility Principle.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{pictures/singleton.png}
+    \caption{Singleton pattern visualized, source: \href{https://rezababakhani.ir/blog/singleton-design-pattern}{Refactoring Guru}}
+    \label{singletonExample}
+\end{figure}
+\par
+The Singleton pattern introduces a global state, which can make it harder to track and reason about the behavior of the system.
+Changes to the Singleton instance can affect other application parts, potentially resulting in hidden bugs and unintended side effects.
+As the Singleton instance is directly accessed throughout the application, the use of Singleton can lead to tight coupling between classes. 
+This can make it more difficult to modify or replace the Singleton in the future with a different implementation.
+\par
+It is worth mentioning that this pattern is great for server-side development.
+Some real-world examples of the Singleton pattern include: database connections, logging, caching, thread pools, and configuration settings.
+These are things that are not supposed to be instantiated more than once, as they can lead to memory leaks or other issues.
+Also, due to their nature, they should not be handled in the client-side part.
+\par
+This is a design pattern I avoided using in the companion app, as it is not recommended for use in modern software development due to its drawbacks.
+Also, because of the spawn of global state, it could result in some slowdowns in the application, as the Singleton instance is directly accessed throughout the application.
+
+
+\subsection{MVVM}
+\par
+MVVM is a design pattern that separates into the following concerns: the Model, the View, and the ViewModel. 
+All the concerns have their own responsibility and are specific handlers for some use cases.
+Below we will take a look at each concern and see how it is implemented in the companion app.
+This design pattern is used in almost all cross-platform frameworks to provide a clear separation between the application logic and the user interface.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.7]{pictures/mvvm.png}
+    \caption{MVVM pattern visualized, source: \href{https://www.javatpoint.com/xamarin-model-view-viewmodel-pattern}{Tutorialspoint}}
+    \label{mvvmExample}
+\end{figure}
+\par
+The Model concern represents the data and business logic of the application. 
+It encapsulates the application's data and the rules that govern access to and updates of this data. 
+It is responsible for fetching data from the database or any other data source, and it ensures that the data is valid. 
+This is notable in the companion app as well, by providing \textit{Service} and \textit{Provider} layers, 
+each being themselves separated into units that are responsible for handling the functionality of a single entity.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=1.0]{pictures/service_provider.png}
+    \caption{Service and Provider layers (Model concern)}
+    \label{serviceProviderExample}
+\end{figure}
+\par
+The View concern deals with the UI (User Interface) of our application. 
+Its role is to display the data and handle user interactions, by sending them to the ViewModel concern. 
+This is observable in the companion app through widget trees.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.3]{pictures/widget_tree.png}
+    \caption{Widget tree (View concern)}
+    \label{widgetTreeExample}
+\end{figure}
+\par
+The ViewModel is the liant between the View and the Model concerns, as the name suggests. 
+Its primary role is to update the Model based on the inputted user interactions. 
+It is usually the concern that handles state management, but since our companion app is mostly stateless, 
+this turns our \textit{Provider} layer into a ViewModel concern handler.
+
+\par
+Data binding is a key feature of MVVM that allows automatic synchronization of data between the View and ViewModel. 
+Changes in the ViewModel are automatically reflected in the View and vice versa. Most of the current cross-platform frameworks have a built-in data binder, 
+so there is almost no need to build it. 
+This is important, because it means that less code needs maintenance, due to the framework's maintenance being done internally.
+
+\subsection{Observer}
+\par
+The Observer design pattern is a behavioral design pattern that defines a one-to-many dependency between objects so that when one object changes state, 
+all its dependents are notified and updated automatically. 
+It was first codified by "a group of IBM researchers" \cite{observerDesignPattern} in the 1994 book Design Patterns.
+It is used to establish a subscription mechanism to allow multiple objects (\textit{Observers}) to listen and react to events or changes in another object (\textit{Subject}).
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{pictures/observer.jpg}
+    \caption{Observer pattern visualized, source: \href{https://gustavopeiretti.com/observer-design-pattern/}{Gustavo Peiretti}}
+    \label{observerExample}
+\end{figure}
+\par
+The Observer defines a one-to-many relationship between objects so that when one object changes state, all its dependents are notified and updated automatically.
+This is useful for building loosely coupled systems, where objects can interact without having direct references to each other.
+The Observer pattern is commonly used in event-driven programming, where objects can subscribe to events and receive notifications when the events occur.
+It is a good fit for separating concerns, as it provides a clear separation between the object that generates events and the objects that react to the events.
+\par
+The Observer pattern is also used in the companion app to notify the UI when the data changes.
+This is done by using the \textit{Provider} layer, which is a state management solution that allows the UI to listen for changes in the data and update accordingly.
+This turns the Provider object into a Subject, and all the notified objects into Observers.
+Such an implementation of the Observer allows for a responsive, and most importantly "stateless" UI, 
+in the sense that traditional "states" (such as the ones in React or Flutter) are not being used, due to them being runtime heavy.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.23]{pictures/subject_observer.png}
+    \caption{Consumer/Observer on left, and Provider/Subject on right}
+    \label{subjectObserverExample}
+\end{figure}
+
+\par
+The Observer pattern is a good fit for building cross-platform applications, as it provides a flexible and scalable way to manage dependencies between objects.
+The MVVM design pattern follows, in a way, the Observer pattern, as the ViewModel concern acts as an Observer that listens for changes in the Model and updates the View accordingly.
+This is a good example of how the Observer pattern can be used to create a responsive and interactive user interface in a cross-platform application.
+Also, with it, we can achieve a good separation of concerns, as the ViewModel concern is responsible for updating the Model based on the user interactions, 
+and the View concern is responsible for displaying the data and handling user interactions.
+
+
 
 \section{Tools}
 By tools, we refer to the software and libraries that are used in cross-platform development.

@@ -33,10 +33,10 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(chatProvider.chats[index].chatName),
                               ChatWithPartner(
                                 chat: chatProvider.chats[index],
                                 partnerId: chatProvider.partnerId,
+                                chatName: chatProvider.chats[index].chatName,
                               )
                             ],
                           ));
