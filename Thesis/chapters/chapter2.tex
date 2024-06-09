@@ -1,17 +1,16 @@
-\chapter{History of cross-platform development}
+\chapter{History}
 \label{chap:ch1}
 
 \indent
 
 \par
-In this chapter, I will elaborate on the progresses made throughout the decades regarding designing software and the evolution of hardware, and see how we ended up with cross-platform development as a necessity.
+In this chapter, I will elaborate on the progresses made throughout the decades regarding designing software and the evolution of hardware, 
+and see how we ended up with cross-platform development as a necessity.
+I will also discuss the first mentions of the term "cross-platform development" and the first toolkits that were created to help developers in this area.
+Another main aspect of this chapter is the principle of separation of concerns.
+I'll take a look at the history of this principle and how it was implemented in the early days of software development.
 
-
-\section{The 1970 - 1990 timeline}
-
-\subsection{The 1970s}
-This decade is perhaps the most important step in software development.
-This is the decade that made modern computing the thing that we know and love.
+\section{History of cross-platform development}
 In 1972, Dennis M.
 Ritchie and his team created the C programming language.
 To say it was revolutionary, was an understatement.
@@ -29,7 +28,7 @@ C is a language that derived from BCPL (Basic Combined Programming Language).
 It became relevant when, yet again, Dennis Ritchie decided to use it in order to re-write the source code of the UNIX operating system.
 Such and operation was deemed necessary by him mainly because the U.S government categorized the capitalism of such a product as a violation the "Sherman Antitrust Act"\cite{unixRepo}.
 Due to this, AT\&T released the Operating System as royalty-free, but later however licenses became a bigger obstruction, hence the limitations in the access of the source code.
-Then Dennis Ritchie decided to re-write the whole OS in the high-level programming language in C, in 1973.
+Then Dennis Ritchie decided to re-write the whole OS in the high-level programming language of C, in 1973.
 This project, although later forked into many other operating systems such MacOS or GNU/Linux, was maintained and developed up to this day to the FreeBSD project.
 
 A part of the legacy assembly source code of UNIX is still on GitHub, at the repository 'dspinellis/unix-history-make'.
@@ -39,8 +38,6 @@ A part of the legacy assembly source code of UNIX is still on GitHub, at the rep
     \caption{Assembly source code of UNIX on GitHub}
     \label{unixRepo}
 \end{figure}
-
-\subsection{The 1980's}
 During the 80's, software design became an area on interest for most people involved in the computer science field.
 One of the earliest approaches of software design is the Layered architecture.
 This was firstly introduced as a need because of the way computer networks were operating.
@@ -94,11 +91,6 @@ This meant that more people were put on the network, and, due to this, all the c
 \par
 As you can see, the biggest jump in the percentages happened between 1980 and 1982.
 But, since ARPANET switched their protocols in 1983, the number of computers in personal households has grown by a staggering 7.7\%, a bit more than double.
-
-\subsection{The 1990's}
-This decade has been the most influential one for the modern world, and especially for the computing area.
-With the evergrowing increase in computer-owning households and the creation of the internet, we see how this affected the development process, thus leading to a series of projects that are major key-factors in our current timeline.
-
 \par
 In 1990, we see the first true creation of cross-platform software.
 At CERN, Switzerland, Tim Berners-Lee submits two ideas for what should be the Web, back in March 1989.
@@ -107,8 +99,6 @@ The intention of this project was to be "a pool of human knowledge", thus allowi
 
 \par
 This project offered features that are still generally available today, such as a server, HTML, the first web programming language, URL's and the first browser.
-
-\section{The 2000's}
 
 \subsection{First definition}
 Now, during this decade we can see some of the first mentions of the term "cross-platform development".
@@ -136,3 +126,15 @@ Because of this, we can also observe the rise in popularity of some toolkits tha
 These are some of the first cross-platform frameworks that are still used today at a production level, and we can see them used in many well-known applications, such as Spotify for Qt, or the GNOME desktop environment for GTK+.
 They are trying to achieve different goals, but one thing that they have in common is that both Qt and GTK+ define a collection of widgets that should work as "platform independent"\cite{firstDefinition}.
 This then allowed for the developers to apply a "learn once, code everywhere" approach.
+
+\section{History of the principle of separation of concerns}
+The principle of separation of concerns has roots that extend back several decades, and it has been discussed and applied in various forms across different disciplines, including software engineering, information architecture, and systems design.
+While it's challenging to pinpoint an exact date or origin for this principle, we can explore some key moments in its history, the ones that got it started as a founding principle in software design.
+First we'll take a look at the structured programming era, this taking place during the 1960's-1970's timeframe.
+\par
+During the structured programming era, pioneers such as Edsger W.
+Dijkstra and Niklaus Wirth advocated for modular programming techniques that emphasized separation of concerns to improve code clarity and maintainability.
+Dijkstra was the first to indirectly point towards this approach, because he argued against the unstructured use of goto statements and advocated for structured programming techniques, which inherently promote separation of concerns.
+He emphasized the importance of clear control flow and modular design in creating understandable and maintainable code.
+He believed that a so called "coordinate system"\cite{firstDefinitionPrinciple} can be used to describe the code in a "helpful and manageable"\cite{firstDefinitionPrinciple} manner.
+

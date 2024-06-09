@@ -21,13 +21,19 @@ The disadvantage of this approach is that it can be more time-consuming and expe
 
 \par
 Utilizing shared libraries and frameworks, such as .NET Core, Flutter, or JavaScript frameworks (e.g., React Native, Electron), helps streamline development.
-These libraries and frameworks provide pre-built components and tools that can be used across multiple platforms, reducing the amount of code that needs to be written and tested.
-However, the downside of this approach is that it can be more challenging to maintain and update the codebase, as changes to the library or framework may require modifications to the application code.
+These libraries and frameworks provide pre-built components and tools that can be used across multiple platforms, 
+reducing the amount of code that needs to be written and tested.
+However, the downside of this approach is that it can be more challenging to maintain and update the codebase, 
+as changes to the library or framework may require modifications to the application code.
 In addition, the performance of the application may be affected by the overhead of the library or framework.
+This is why it is important to consider certain aspects of the framework, such as "popularity", "ease of use" and "longevity",
+because these are the frameworks that "you can try out with little investments" \cite{frameworks} and can decide early of their fit for the job.
 
 \subsection{Platform Abstraction}
 Platform abstraction refers to building an abstraction layer that isolates the application logic from the platform-specific code (e.g. Kernel interactions).
 It is necessary, due to the multitude of platforms that exist today, each with its own set of features and requirements.
+This is usually done through a hardware abstraction API, 
+that gives "an abstraction of underlying HW (hardware) architecture, i.e. processor local architecture" \cite{platformAbstraction}.
 
 \par
 Abstraction layers allow developers to write platform-agnostic code that interfaces with platform-specific functionality through standardized APIs.
@@ -68,6 +74,7 @@ It is also worth mentioning that the principle is not used as intended in the hi
 The Single Responsibility Principle (SRP) states that a class should have only one reason to change.
 This principle is relevant in cross-platform development, as it helps to create more modular and maintainable code.
 By separating concerns into individual classes or components, developers can isolate changes to specific areas of the codebase.
+It is mostly used in "three levels of granularity: (a) method-, (b) class-, and (c) package-level" \cite{srp}.
 \par
 This makes it easier to understand, test, and modify the code, as each component has a clear and well-defined purpose.
 However, the SRP is not always followed in cross-platform development, as classes or components may have multiple responsibilities.
@@ -80,18 +87,23 @@ However, the DRY principle is not always followed in cross-platform development,
 
 \subsection{Open/Closed Principle}
 The Open/Closed Principle states that classes should be open for extension but closed for modification.
+It is mostly used when designing "modules that never change" \cite{openClose}.
 This principle is relevant in cross-platform development, as it helps to create more flexible and maintainable code.
 By designing classes to be extensible, developers can add new functionality without modifying existing code.
 This makes it easier to adapt the codebase to changing requirements or new platforms.
 
 \subsection{Liskov Substitution Principle}
 The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+This is mostly used for components superclassing, 
+because when it is applied correctly we enforce "inheritance hierarchies that are easy to understand and extend" \cite{liskov}.
 This principle is relevant in cross-platform development, as it helps to ensure that code is reusable and interoperable across different platforms.
 By designing classes to be substitutable, developers can create more flexible and scalable code.
 However, the Liskov Substitution Principle is not always followed in cross-platform development, as platform-specific code may not be interchangeable with platform-agnostic code.
 
 \subsection{Dependency Injection (DI)}
 Dependency Injection (DI) is a design pattern that allows objects to be injected into a class rather than created internally.
+It mainly refers to the use case of a service "that is required by another object to fulfill its function" \cite{depInjection}, or, in our case,
+it can be referred to API handlers that need ORM's (\textit{Object Relational Mappers}) for example.
 This pattern is relevant in cross-platform development, as it helps to decouple components and reduce dependencies.
 By injecting dependencies into classes, developers can create more modular and testable code.
 However, DI is not always used in cross-platform development, as it can add complexity and overhead to the codebase.
@@ -115,6 +127,7 @@ I will also do a more thorough analysis on the design patterns of my choice for 
 \subsection{MVC}
 The Model-View-Controller (MVC) design pattern is a software architecture pattern that separates an application into three main concerns: 
 the Model, the View, and the Controller.
+It's mostly used when we keep into account "the role of objects and the communications between those objects" \cite{mvcQ}.
 This is a design pattern that is highly compatible with most REST APIs, as it provides a clear separation between the application logic and the user interface.
 \begin{figure}[htbp]
     \centering
@@ -137,7 +150,7 @@ Its main purpose is to update the Model and select the proper View display.
 
 
 \subsection{Singleton}
-Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+Singleton is a creational design pattern that lets you ensure that the "need for one - and only one - instance of a class" \cite{singletonQ} is met.
 The Singleton pattern solves two problems at the same time, violating the Single Responsibility Principle.
 \begin{figure}[htbp]
     \centering
@@ -164,6 +177,7 @@ Also, because of the spawn of global state, it could result in some slowdowns in
 \par
 MVVM is a design pattern that separates into the following concerns: the Model, the View, and the ViewModel. 
 All the concerns have their own responsibility and are specific handlers for some use cases.
+This design pattern is considered one of the best, as "regardless of how you implement the pattern, doing so is good practice" \cite{mvvmQ}.
 Below we will take a look at each concern and see how it is implemented in the companion app.
 This design pattern is used in almost all cross-platform frameworks to provide a clear separation between the application logic and the user interface.
 \begin{figure}[htbp]
@@ -253,6 +267,7 @@ Here are some of the most popular tools used in cross-platform development today
 \subsection{Flutter}
 Flutter is an open-source UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
 It provides a rich set of pre-built components and tools that can be used to create responsive and interactive user interfaces.
+This enables Flutter to stick to the "write once, deploy everywhere" \cite{flutterQ} paradigm.
 Flutter uses the Dart programming language, which is designed for building modern, object-oriented applications.
 It also provides a hot reload feature that allows developers to quickly see changes to the code reflected in the application without restarting the app.
 It is a popular choice for building cross-platform applications due to its ease of use, performance, and flexibility.
@@ -267,6 +282,7 @@ Distinct features of Flutter include:
 
 \subsection{React Native}
 React Native is an open-source framework for building natively compiled applications for mobile devices from a single codebase.
+It is also performant, run time wise, due to its "asynchronous calls to the underlying mobile OS" \cite{reactNativeQ}.
 It uses the React JavaScript library to create user interfaces and provides a rich set of pre-built components and tools for building cross-platform applications.
 React Native is a popular choice for building mobile applications due to its ease of use, performance, and flexibility.
 It also provides the hot reload feature aforementioned. 
@@ -274,6 +290,7 @@ React Native is a good choice for building cross-platform applications due to it
 
 \subsection{Xamarin}
 Xamarin is an open-source framework for building natively compiled applications for mobile devices from a single codebase.
+It is a descendant of the "open source Mono Project that brought .NET to Linux" \cite{xamarinQ}.
 It uses the C\# programming language and the .NET framework to create cross-platform applications.
 Xamarin provides a rich set of pre-built components and tools for building mobile applications, including support for iOS, Android, and Windows devices.
 It also provides a hot reload feature that allows developers to quickly see changes to the code reflected in the application without restarting the app.

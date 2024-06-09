@@ -1,14 +1,44 @@
-\begin{thebibliography}{Bob80}
+\begin{thebibliography}{Win20}
 
 \bibitem[A.94]{worldWideWeb}
 Berners-Lee T. \& Cailliau R. \& Luotonen A. Nielsen \& H. F. \&~Secret A.
 \newblock The world-wide web. communications of the acm.
 \newblock {\em 37}, 1994.
 
+\bibitem[A.19]{srp}
+Ampatzoglou A.
+\newblock Applying the single responsibility principle in industry.
+\newblock 2019.
+
+\bibitem[AA01]{liskov}
+Walid Al-Ahmad.
+\newblock On the interaction of programming by contract and liskov substitution principle.
+\newblock 2001.
+
+\bibitem[A.A03]{platformAbstraction}
+Yoo S. \&~Jerraya A.A.
+\newblock Introduction to hardware abstraction layers for soc.
+\newblock 2003.
+
 \bibitem[Bob80]{layeredArchitecure80s}
 Ira P. Goldstein \& Daniel~G. Bobrow.
 \newblock A layered approach to software design.
 \newblock 1980.
+
+\bibitem[Bod17]{reactNativeQ}
+Adam Boduch.
+\newblock React and react native.
+\newblock 2017.
+
+\bibitem[Buc09]{mvcQ}
+James Bucanek.
+\newblock Learn objective-c for java developers.
+\newblock 2009.
+
+\bibitem[C.12]{mvvmQ}
+Anderson C.
+\newblock The model-view-viewmodel design pattern. pro business applications with silverlight.
+\newblock 2012.
 
 \bibitem[D.16]{unixRepo}
 Spinellis D.
@@ -25,19 +55,89 @@ Andrew Eagles.
 \newblock The observer pattern revisited.
 \newblock 2005.
 
+\bibitem[Her15]{xamarinQ}
+Dan Hermes.
+\newblock Xamarin mobile application development: Cross-platform c# and xamarin.forms fundamentals.
+\newblock 2015.
+
+\bibitem[J.11]{singletonQ}
+Dooley J.
+\newblock Software development and professional practice.
+\newblock 2011.
+
 \bibitem[J.22]{ritchieJobs}
 Perlow J.
 \newblock Without dennis ritchie, there would be no jobs.
 \newblock 2022.
+
+\bibitem[Jon84]{flexibilityReusability}
+T.C. Jones.
+\newblock Reusability in programming, a survey of the state of the art.
+\newblock 1984.
+
+\bibitem[Liu09]{scalability}
+Henry~H. Liu.
+\newblock Software performance and scalability: A quantitative approach.
+\newblock 2009.
 
 \bibitem[M.88]{arpanetDdn}
 Perry D. G. \& Blumenthal \& S. H. \& Hinden \&~R. M.
 \newblock The arpanet and the darpa internet.
 \newblock {\em Library Hi Tech, 6(2)}, 1988.
 
+\bibitem[Mar00]{openClose}
+Robert~C. Martin.
+\newblock More c++ gems.
+\newblock 2000.
+
 \bibitem[N.06]{firstDefinition}
 Bishop J. \&~Horspool N.
 \newblock Cross-platform development: Software that lasts.
 \newblock {\em 39}, 2006.
+
+\bibitem[P.02]{debugging}
+Hailpern B. \&~Santhanam P.
+\newblock Software debugging, testing and verification.
+\newblock 2002.
+
+\bibitem[Pan99]{testing}
+Jiantao Pan.
+\newblock Software testing.
+\newblock 1999.
+
+\bibitem[Pra09]{depInjection}
+Dhananjay Prasanna.
+\newblock Dependency injection, design patterns using spring and guice.
+\newblock 2009.
+
+\bibitem[Sat18]{frameworks}
+Brandon Satrom.
+\newblock Choosing the right javascript web framework for your next web application.
+\newblock 2018.
+
+\bibitem[Tar03]{definitionSOC}
+Harold Ossher \&~Peri Tarr.
+\newblock Multi-dimensional separation of concerns and the hyperspace approach.
+\newblock 2003.
+
+\bibitem[Ver02]{socExample}
+Bart De Win \& Wouter Joosen \& Frank Piessens \&~Tine Verhanneman.
+\newblock On the importance of the separation-of-concerns principle in secure software engineering.
+\newblock 2002.
+
+\bibitem[Wei10]{readabilityMaintainability}
+M.~P. Robillard \& Westley~R. Weimer.
+\newblock Learning a metric for code readability.
+\newblock 2010.
+
+\bibitem[Win20]{flutterQ}
+Eric Windmill.
+\newblock Flutter in action.
+\newblock 2020.
+
+\bibitem[Zus98]{complexity}
+Horst Zuse.
+\newblock Software complexity: Measures and methods.
+\newblock 1998.
 
 \end{thebibliography}

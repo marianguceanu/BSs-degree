@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.6.7)  7 JUN 2024 02:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.6.7)  8 JUN 2024 12:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -358,7 +358,7 @@ Chapter 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 
+l.38 
       [1
 
 ]) (./chapters/chapter2.tex
@@ -371,26 +371,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 Chapter 2.
-<pictures/KenThompson_and_DennisRitchie1973.jpg, id=314, 220.825pt x 143.53625pt>
+<pictures/KenThompson_and_DennisRitchie1973.jpg, id=294, 220.825pt x 143.53625pt>
 File: pictures/KenThompson_and_DennisRitchie1973.jpg Graphic file (type jpg)
 <use pictures/KenThompson_and_DennisRitchie1973.jpg>
-Package pdftex.def Info: pictures/KenThompson_and_DennisRitchie1973.jpg  used on input line 22.
+Package pdftex.def Info: pictures/KenThompson_and_DennisRitchie1973.jpg  used on input line 21.
 (pdftex.def)             Requested size: 154.57643pt x 100.47467pt.
 [3
 
  <./pictures/KenThompson_and_DennisRitchie1973.jpg>]
-<pictures/unix_repo.png, id=322, 929.4725pt x 474.77374pt>
+<pictures/unix_repo.png, id=302, 929.4725pt x 474.77374pt>
 File: pictures/unix_repo.png Graphic file (type png)
 <use pictures/unix_repo.png>
-Package pdftex.def Info: pictures/unix_repo.png  used on input line 38.
+Package pdftex.def Info: pictures/unix_repo.png  used on input line 37.
 (pdftex.def)             Requested size: 464.73512pt x 237.38629pt.
 
-Overfull \hbox (23.71739pt too wide) in paragraph at lines 38--39
+Overfull \hbox (23.71739pt too wide) in paragraph at lines 37--38
  [][] 
  []
 
 
-Overfull \hbox (9.8893pt too wide) in paragraph at lines 57--58
+Overfull \hbox (9.8893pt too wide) in paragraph at lines 54--55
 \OT1/ppl/m/n/12 clunkier, thus mak-ing re-vert-ing or al-ter-nat-ing changes a time and memory-consuming
  []
 
@@ -402,10 +402,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4 <./pictures/unix_repo.png>]
-<pictures/arpanet.png, id=334, 647.41875pt x 837.1275pt>
+<pictures/arpanet.png, id=313, 647.41875pt x 837.1275pt>
 File: pictures/arpanet.png Graphic file (type png)
 <use pictures/arpanet.png>
-Package pdftex.def Info: pictures/arpanet.png  used on input line 64.
+Package pdftex.def Info: pictures/arpanet.png  used on input line 61.
 (pdftex.def)             Requested size: 647.41716pt x 837.12546pt.
 
 
@@ -423,7 +423,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6]) (./chapters/chapter3.tex
+[6]
+Overfull \hbox (3.38536pt too wide) in paragraph at lines 131--134
+\OT1/ppl/m/n/12 in-clud-ing soft-ware en-gi-neer-ing, in-for-ma-tion ar-chi-tec-ture, and sys-tems de-sign. While
+ []
+
+) (./chapters/chapter3.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -433,18 +438,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 Chapter 3.
-
-Overfull \hbox (3.38536pt too wide) in paragraph at lines 11--14
-\OT1/ppl/m/n/12 in-clud-ing soft-ware en-gi-neer-ing, in-for-ma-tion ar-chi-tec-ture, and sys-tems de-sign. While
- []
-
 [8
 
 ]
-<pictures/soc_definition_example.jpg, id=366, 1004.75375pt x 502.87875pt>
+<pictures/soc_definition_example.jpg, id=347, 1004.75375pt x 502.87875pt>
 File: pictures/soc_definition_example.jpg Graphic file (type jpg)
 <use pictures/soc_definition_example.jpg>
-Package pdftex.def Info: pictures/soc_definition_example.jpg  used on input line 51.
+Package pdftex.def Info: pictures/soc_definition_example.jpg  used on input line 45.
 (pdftex.def)             Requested size: 401.89438pt x 201.14793pt.
 
 
@@ -455,6 +455,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
+Overfull \hbox (16.71698pt too wide) in paragraph at lines 74--76
+\OT1/ppl/m/n/12 well-defined re-spon-si-bil-i-ties, de-vel-op-ers can cre-ate more flex-i-ble, scal-able, and reusable
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -463,12 +467,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10 <./pictures/soc_definition_example.jpg>]
-Overfull \hbox (16.71698pt too wide) in paragraph at lines 79--81
-\OT1/ppl/m/n/12 well-defined re-spon-si-bil-i-ties, de-vel-op-ers can cre-ate more flex-i-ble, scal-able, and reusable
- []
-
-
-Overfull \hbox (8.06169pt too wide) in paragraph at lines 96--99
+Overfull \hbox (8.06169pt too wide) in paragraph at lines 93--96
 []\OT1/ppl/m/n/12 Separation of con-cerns aligns with the Sin-gle Re-spon-si-bil-ity Prin-ci-ple (SRP), which
  []
 
@@ -504,7 +503,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14]
-Overfull \hbox (0.91052pt too wide) in paragraph at lines 200--204
+Overfull \hbox (0.91052pt too wide) in paragraph at lines 202--206
 []\OT1/ppl/m/n/12 Separation of con-cerns al-lows for op-ti-miz-ing the per-for-mance of in-di-vid-ual mod-
  []
 
@@ -516,7 +515,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15]
-Overfull \hbox (0.85335pt too wide) in paragraph at lines 221--225
+Overfull \hbox (0.85335pt too wide) in paragraph at lines 223--227
 \OT1/ppl/m/n/12 in-clud-ing de-sign com-plex-ity, in-creased com-po-nent man-age-ment, inter-module com-
  []
 
@@ -552,12 +551,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-Overfull \hbox (1.4171pt too wide) in paragraph at lines 298--299
+Overfull \hbox (1.4171pt too wide) in paragraph at lines 311--312
 \OT1/ppl/m/n/12 en-vi-ron-ments, ef-fec-tive state man-age-ment, in-te-grated de-bug-ging tools, per-for-mance
  []
 
 
-Overfull \hbox (1.23787pt too wide) in paragraph at lines 298--299
+Overfull \hbox (1.23787pt too wide) in paragraph at lines 311--312
 \OT1/ppl/m/n/12 con-sid-er-a-tions, and stan-dard-ized er-ror han-dling, de-vel-op-ers can mit-i-gate these chal-
  []
 
@@ -572,7 +571,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 Chapter 4.
 
-Overfull \hbox (10.13794pt too wide) in paragraph at lines 23--27
+Overfull \hbox (10.13794pt too wide) in paragraph at lines 23--31
 []\OT1/ppl/m/n/12 Utilizing shared li-braries and frame-works, such as .NET Core, Flut-ter, or JavaScript
  []
 
@@ -603,14 +602,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24]
-Overfull \hbox (1.23529pt too wide) in paragraph at lines 105--109
+Overfull \hbox (1.23529pt too wide) in paragraph at lines 117--121
 []\OT1/ppl/m/n/12 Also, due to this, a mod-i-fi-ca-tion on a base layer would im-ply a cas-cade of changes
  []
 
-<pictures/mvc.png, id=436, 573.14125pt x 497.86pt>
+<pictures/mvc.png, id=444, 573.14125pt x 497.86pt>
 File: pictures/mvc.png Graphic file (type png)
 <use pictures/mvc.png>
-Package pdftex.def Info: pictures/mvc.png  used on input line 121.
+Package pdftex.def Info: pictures/mvc.png  used on input line 134.
 (pdftex.def)             Requested size: 229.25243pt x 199.14047pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -619,11 +618,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25 <./pictures/mvc.png>]
-<pictures/singleton.png, id=444, 481.8pt x 301.125pt>
+[25]
+<pictures/singleton.png, id=453, 481.8pt x 301.125pt>
 File: pictures/singleton.png Graphic file (type png)
 <use pictures/singleton.png>
-Package pdftex.def Info: pictures/singleton.png  used on input line 144.
+Package pdftex.def Info: pictures/singleton.png  used on input line 157.
 (pdftex.def)             Requested size: 192.71658pt x 120.44786pt.
 
 
@@ -633,56 +632,56 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26 <./pictures/singleton.png>]
-<pictures/mvvm.png, id=453, 637.38126pt x 197.73875pt>
+[26 <./pictures/mvc.png> <./pictures/singleton.png>]
+<pictures/mvvm.png, id=466, 637.38126pt x 197.73875pt>
 File: pictures/mvvm.png Graphic file (type png)
 <use pictures/mvvm.png>
-Package pdftex.def Info: pictures/mvvm.png  used on input line 171.
+Package pdftex.def Info: pictures/mvvm.png  used on input line 185.
 (pdftex.def)             Requested size: 446.16383pt x 138.41617pt.
 
-Overfull \hbox (5.1461pt too wide) in paragraph at lines 171--172
+Overfull \hbox (5.1461pt too wide) in paragraph at lines 185--186
  [][] 
  []
 
-<pictures/service_provider.png, id=455, 216.81pt x 62.2325pt>
+<pictures/service_provider.png, id=468, 216.81pt x 62.2325pt>
 File: pictures/service_provider.png Graphic file (type png)
 <use pictures/service_provider.png>
-Package pdftex.def Info: pictures/service_provider.png  used on input line 183.
+Package pdftex.def Info: pictures/service_provider.png  used on input line 197.
 (pdftex.def)             Requested size: 216.80946pt x 62.23235pt.
-<pictures/widget_tree.png, id=456, 1142.2675pt x 931.48pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27 <./pictures/mvvm.png>]
+<pictures/widget_tree.png, id=476, 1142.2675pt x 931.48pt>
 File: pictures/widget_tree.png Graphic file (type png)
 <use pictures/widget_tree.png>
-Package pdftex.def Info: pictures/widget_tree.png  used on input line 193.
+Package pdftex.def Info: pictures/widget_tree.png  used on input line 207.
 (pdftex.def)             Requested size: 342.68289pt x 279.44615pt.
 
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27 <./pictures/mvvm.png> <./pictures/service_provider.png>]
-<pictures/observer.jpg, id=465, 554.82281pt x 237.13594pt>
+[28 <./pictures/service_provider.png> <./pictures/widget_tree.png>]
+<pictures/observer.jpg, id=484, 554.82281pt x 237.13594pt>
 File: pictures/observer.jpg Graphic file (type jpg)
 <use pictures/observer.jpg>
-Package pdftex.def Info: pictures/observer.jpg  used on input line 217.
+Package pdftex.def Info: pictures/observer.jpg  used on input line 231.
 (pdftex.def)             Requested size: 221.92519pt x 94.85268pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[28 <./pictures/widget_tree.png>]
-<pictures/subject_observer.png, id=473, 1927.2pt x 1084.05pt>
+<pictures/subject_observer.png, id=486, 1927.2pt x 1084.05pt>
 File: pictures/subject_observer.png Graphic file (type png)
 <use pictures/subject_observer.png>
-Package pdftex.def Info: pictures/subject_observer.png  used on input line 234.
+Package pdftex.def Info: pictures/subject_observer.png  used on input line 248.
 (pdftex.def)             Requested size: 443.24669pt x 249.32625pt.
 
-Overfull \hbox (2.22896pt too wide) in paragraph at lines 234--235
+Overfull \hbox (2.22896pt too wide) in paragraph at lines 248--249
  [][] 
  []
 
@@ -693,19 +692,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29 <./pictures/observer.jpg> <./pictures/subject_observer.png>]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 262.
+[29 <./pictures/observer.jpg>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30 <./pictures/subject_observer.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 277.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+LaTeX Warning: Citation `xamarinQ' on page 31 undefined on input line 293.
 
-[30]) (./chapters/chapter5.tex
+) (./chapters/chapter5.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -715,7 +718,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [31]
 Chapter 5.
-<pictures/server_utils.png, id=489, 1075.01625pt x 356.33125pt>
+<pictures/server_utils.png, id=507, 1075.01625pt x 356.33125pt>
 File: pictures/server_utils.png Graphic file (type png)
 <use pictures/server_utils.png>
 Package pdftex.def Info: pictures/server_utils.png  used on input line 28.
@@ -727,7 +730,7 @@ Overfull \hbox (18.49005pt too wide) in paragraph at lines 40--46
 []\OT1/ppl/m/n/12 The Database Op-er-a-tions layer con-tains the func-tions that in-ter-act with the database.
  []
 
-<pictures/dboperations.png, id=495, 290.08376pt x 244.915pt>
+<pictures/dboperations.png, id=513, 290.08376pt x 244.915pt>
 File: pictures/dboperations.png Graphic file (type png)
 <use pictures/dboperations.png>
 Package pdftex.def Info: pictures/dboperations.png  used on input line 49.
@@ -740,12 +743,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [33 <./pictures/server_utils.png> <./pictures/dboperations.png>]
-<pictures/middleware.png, id=502, 1006.76125pt x 295.1025pt>
+<pictures/middleware.png, id=520, 1006.76125pt x 295.1025pt>
 File: pictures/middleware.png Graphic file (type png)
 <use pictures/middleware.png>
 Package pdftex.def Info: pictures/middleware.png  used on input line 62.
 (pdftex.def)             Requested size: 402.69736pt x 118.0389pt.
-<pictures/controllers.png, id=503, 379.4175pt x 183.68625pt>
+<pictures/controllers.png, id=521, 379.4175pt x 183.68625pt>
 File: pictures/controllers.png Graphic file (type png)
 <use pictures/controllers.png>
 Package pdftex.def Info: pictures/controllers.png  used on input line 76.
@@ -755,7 +758,7 @@ Overfull \hbox (14.28098pt too wide) in paragraph at lines 76--77
  [][] 
  []
 
-<pictures/partner_class.png, id=504, 590.205pt x 925.4575pt>
+<pictures/partner_class.png, id=522, 590.205pt x 925.4575pt>
 File: pictures/partner_class.png Graphic file (type png)
 <use pictures/partner_class.png>
 Package pdftex.def Info: pictures/partner_class.png  used on input line 86.
@@ -776,7 +779,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [35 <./pictures/partner_class.png>]
-<pictures/partners_mapped_good_example.png, id=516, 776.9025pt x 639.38875pt>
+<pictures/partners_mapped_good_example.png, id=534, 776.9025pt x 639.38875pt>
 File: pictures/partners_mapped_good_example.png Graphic file (type png)
 <use pictures/partners_mapped_good_example.png>
 Package pdftex.def Info: pictures/partners_mapped_good_example.png  used on input line 108.
@@ -790,12 +793,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36 <./pictures/partners_mapped_good_example.png>]
-<pictures/looks_bad_but_is_good_because.png, id=522, 328.22626pt x 432.61626pt>
+<pictures/looks_bad_but_is_good_because.png, id=540, 328.22626pt x 432.61626pt>
 File: pictures/looks_bad_but_is_good_because.png Graphic file (type png)
 <use pictures/looks_bad_but_is_good_because.png>
 Package pdftex.def Info: pictures/looks_bad_but_is_good_because.png  used on input line 130.
 (pdftex.def)             Requested size: 131.28816pt x 173.04343pt.
-<pictures/it_avoid_boilerplate.png, id=523, 653.44125pt x 884.30376pt>
+<pictures/it_avoid_boilerplate.png, id=541, 653.44125pt x 884.30376pt>
 File: pictures/it_avoid_boilerplate.png Graphic file (type png)
 <use pictures/it_avoid_boilerplate.png>
 Package pdftex.def Info: pictures/it_avoid_boilerplate.png  used on input line 141.
@@ -809,12 +812,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [37 <./pictures/looks_bad_but_is_good_because.png> <./pictures/it_avoid_boilerplate.png>]
-<pictures/partners_not_mapped_bad_example.png, id=530, 525.965pt x 906.38625pt>
+<pictures/partners_not_mapped_bad_example.png, id=548, 525.965pt x 906.38625pt>
 File: pictures/partners_not_mapped_bad_example.png Graphic file (type png)
 <use pictures/partners_not_mapped_bad_example.png>
 Package pdftex.def Info: pictures/partners_not_mapped_bad_example.png  used on input line 157.
 (pdftex.def)             Requested size: 210.38226pt x 362.54808pt.
-<pictures/because_it_looks_bad_we_have_ui.png, id=531, 462.72874pt x 1005.7575pt>
+<pictures/because_it_looks_bad_we_have_ui.png, id=549, 462.72874pt x 1005.7575pt>
 File: pictures/because_it_looks_bad_we_have_ui.png Graphic file (type png)
 <use pictures/because_it_looks_bad_we_have_ui.png>
 Package pdftex.def Info: pictures/because_it_looks_bad_we_have_ui.png  used on input line 171.
@@ -839,28 +842,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Chapter 6.
 ) (./main.bbl [40
 
-]) [41
+]
+./main.bbl:60: You can't use `macro parameter character #' in horizontal mode.
+l.60 ...application development: Cross-platform c#
+                                                   and xamarin.forms fundame...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
-] (./main.aux)
+[41
+
+])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[42] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0D5D595528D67F4568FFA8100FF04F8B;7905.
+(rerunfilecheck)             Checksum: D6555C0779F55B82FC86F8E1B24AA29F;7530.
  ) 
 Here is how much of TeX's memory you used:
- 10896 strings out of 477985
- 176300 string characters out of 5839371
+ 10929 strings out of 477985
+ 176749 string characters out of 5839371
  1860388 words of memory out of 6000000
- 30774 multiletter control sequences out of 15000+600000
+ 30790 multiletter control sequences out of 15000+600000
  525883 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,90p,540b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,90p,540b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (46 pages, 1887568 bytes).
+Output written on main.pdf (47 pages, 1893875 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
- 516 compressed objects within 6 object streams
- 130 named destinations out of 1000 (max. 500000)
- 546 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 631 PDF objects out of 1000 (max. 8388607)
+ 542 compressed objects within 6 object streams
+ 147 named destinations out of 1000 (max. 500000)
+ 514 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,21 +6,10 @@ We'll compare and analyze the views regarding this topic, see where it originate
 check out what caused it to come into existence, and then do a thorough analysis regarding the benefits it provides, and the disadvantages they bring.
 
 
-
-\section{When was introduced}
-The principle of separation of concerns has roots that extend back several decades, and it has been discussed and applied in various forms across different disciplines, including software engineering, information architecture, and systems design.
-While it's challenging to pinpoint an exact date or origin for this principle, we can explore some key moments in its history, the ones that got it started as a founding principle in software design.
-First we'll take a look at the structured programming era, this taking place during the 1960's-1970's timeframe.
-\par
-During the structured programming era, pioneers such as Edsger W.
-Dijkstra and Niklaus Wirth advocated for modular programming techniques that emphasized separation of concerns to improve code clarity and maintainability.
-Dijkstra was the first to indirectly point towards this approach, because he argued against the unstructured use of goto statements and advocated for structured programming techniques, which inherently promote separation of concerns.
-He emphasized the importance of clear control flow and modular design in creating understandable and maintainable code.
-He believed that a so called "coordinate system"\cite{firstDefinitionPrinciple} can be used to describe the code in a "helpful and manageable"\cite{firstDefinitionPrinciple} manner.
-
 \section{Rise in popularity}
 The adoption of the principle of separation of concerns gained significant momentum during the late 20th century and continued into the early 21st century.
-While it's challenging to pinpoint an exact time period for its increased adoption, we can identify key phases when the concept became more widely recognized and discussed:
+While it's challenging to pinpoint an exact time period for its increased adoption, 
+we can identify key phases when the concept became more widely recognized and discussed:
 \par
 During the emergence of object-oriented programming (OOP) in the late 1970s and 1980s, the principles of modularity and separation of concerns gained prominence.
 Languages like Smalltalk and Simula popularized OOP concepts such as encapsulation, inheritance, and polymorphism, which inherently promote the separation of concerns.
@@ -39,13 +28,18 @@ From the mid-2000s to the present day, separation of concerns has remained a cen
 The advent of microservices architectures, cloud computing, and DevOps practices further underscored the importance of modular design and loose coupling.
 Additionally, the proliferation of open-source software projects and collaboration platforms facilitated the exchange of knowledge and best practices related to separation of concerns.
 \par
-Overall, while separation of concerns has been a guiding principle in software engineering for several decades, its adoption and recognition as a fundamental design principle gained momentum during the late 20th century and continue to shape software development practices today.
-The most significant publications about separation of concerns were written during the 1990s and early 2000s, coinciding with the emergence of object-oriented programming and the proliferation of design patterns and agile methodologies.
+Overall, while separation of concerns has been a guiding principle in software engineering for several decades, its adoption 
+and recognition as a fundamental design principle gained momentum during the late 20th century and continue to shape software development practices today.
+The most significant publications about separation of concerns were written during the 1990s and early 2000s, 
+coinciding with the emergence of object-oriented programming and the proliferation of design patterns and agile methodologies.
 
 
 \section{Definition}
 Separation of concerns is a design principle in software engineering where different parts of a system are divided to handle different responsibilities.
-This makes the system easier to understand, maintain, and modify because each part focuses on a specific aspect of functionality, rather than trying to handle everything at once.
+This makes the system easier to understand, maintain, and modify because each part focuses on a specific aspect of functionality, 
+rather than trying to handle everything at once.
+It is a fundamental principle in software architecture that promotes modularity, maintainability, and scalability, or, as Harold Ossher and Peri Tarr put it, 
+it's something that stands at the "core of software engineering" \cite{definitionSOC}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=0.4]{pictures/soc_definition_example.jpg}
@@ -61,7 +55,8 @@ We'll take each of them apart and see what they can provide for us.
 \subsection{Modularity}
 Separation of concerns promotes modularity, where a system is divided into smaller, independent modules.
 Each module encapsulates a specific aspect of functionality.
-For example, in a web application, you might have separate modules for handling user authentication, processing data, and presenting the user interface.
+For example, in an application that requires extensive security, 
+advanced separation of concerns allows for building mechanisms that "can be merged into the system in a flexible way" \cite{socExample}.
 \par
 Modularity encourages encapsulation, which involves bundling related functionality and data into cohesive units called modules.
 Each module represents a self-contained unit of code that hides its internal implementation details from the rest of the system.
@@ -82,6 +77,8 @@ By breaking down a system into modular components with clear interfaces and well
 
 \subsection{Readability and Maintainability}
 By separating concerns, the code becomes easier to read and understand.
+This is important, becuase it was proven by Raymond P. L. Buse and Westley R. Weimer that 
+"low readability correlates more strongly with this direct notion of defect density" \cite{readabilityMaintainability}.
 Developers can focus on one aspect of the system at a time, making it easier to debug, maintain, and modify without affecting other parts of the system.
 This also facilitates collaboration among team members, as each person can work on different modules independently.
 \par
@@ -107,6 +104,9 @@ By breaking a system into modular components with well-defined responsibilities,
 
 \subsection{Flexibility and Reusability} 
 Separating concerns allows for greater flexibility and reusability of code.
+We need to understand that flexibility is a key aspect of software design, as it allows for adapting to changing requirements and environments.
+Through separation of concerns, we can ensure that we have solid base for reusability, because, as Jones T.C. mentioned,
+"effective reuse will require an architectural starting point" \cite{flexibilityReusability}.
 Since each module is designed to handle a specific responsibility, it can be reused in different parts of the system or even in other projects altogether.
 For example, a module responsible for database access can be reused in multiple parts of an application without modification.
 \par
@@ -146,6 +146,7 @@ This promotes agility, reduces development time, and facilitates the creation of
 When concerns are separated, it becomes easier to test individual modules in isolation.
 This allows for more targeted and comprehensive testing, as each module can be tested independently of the rest of the system.
 Additionally, modular code is often easier to mock or stub, which is useful for unit testing.
+Testing is a need that should be more enforced, because "software bugs will almost always exist" \cite{testing}.
 \par
 Separation of concerns facilitates modular testing, where each module can be tested independently of the rest of the system.
 This modular approach allows developers to write focused unit tests for individual modules, verifying their behavior in isolation.
@@ -175,8 +176,9 @@ By testing integration points and boundary conditions, developers can identify a
 
 \subsection{Scalability}
 Separating concerns also facilitates scalability.
-As the system grows and evolves, new functionality can be added or existing functionality can be modified without affecting other parts of the system.
+As the system grows and evolves, new functionality can be added. Existing functionality can be modified without affecting other parts of the system.
 This makes it easier to scale the system both horizontally (by adding more instances of existing modules) and vertically (by adding new modules).
+It also refers to the performance of an existing system, as "performance and scalability are about the scalable performance of the system" \cite{scalability}.
 Let's take a more in-depth look at how it influences scalability.
 \par
 By dividing a system into independent modules, each responsible for a specific concern, it becomes easier to manage and scale individual components.
@@ -225,7 +227,9 @@ Now we'll take a look at the mentioned challenges and analyze them.
 
 \subsection{Complexity}
 From a design perspective, separating concerns often requires designing a system with multiple modules, each responsible for a specific aspect of the functionality.
-This modular design can be complex because it involves defining clear boundaries and interfaces between modules.
+This aspect is one of the hardest to quantify, because "the base of every evaluation of the complexity of a program is an idea" \cite{complexity}.
+Taken this into consideration, we'll enforce the following definition of complexity:
+modular design can be complex because it involves defining clear boundaries and interfaces between modules.
 Ensuring that each module interacts correctly and efficiently with others can be challenging, particularly in large systems with many interdependencies.
 Deciding how to partition a system into separate concerns can be non-trivial. It requires a deep understanding of the domain, potential changes, and future scalability requirements. Poorly defined boundaries can lead to tight coupling between modules, defeating the purpose of SoC.
 \par
@@ -255,7 +259,9 @@ Performance optimization often requires coordinated changes across multiple modu
 In summary, performance challenges  need careful management, and by understanding and addressing these challenges, developers can create systems that leverage the advantages of separating concerns without compromising on performance.
 
 \subsection{Learning curve}
-Applying the principle in software development introduces a learning curve that can be challenging for developers, particularly those new to the paradigm or working within complex systems. Now, let's do an in-depth analysis at the specific learning curve challenges.
+Applying the principle in software development introduces a learning curve that can be challenging for developers, 
+particularly those new to the paradigm or working within complex systems. 
+Now, let's do an in-depth analysis at the specific learning curve challenges.
 \par
 Separation of concerns requires developers to think differently about how they design and structure their code. Instead of creating monolithic applications, they must learn to break down functionality into distinct, loosely-coupled modules. This shift in thinking can be difficult, especially for those accustomed to traditional, tightly-coupled designs.
 Effective application of the principle demands a solid grasp of software architecture principles, including how to define clear interfaces, manage dependencies, and ensure proper module interactions. Developing these skills takes time and experience.
@@ -269,10 +275,15 @@ Beyond design patterns, developers must also familiarize themselves with best pr
 In summary, by providing the necessary training, tools, and support, developers overcome these challenges and effectively apply the principle to create maintainable, scalable, and high-performing systems.
 
 \subsection{Tooling}
-Implementing the separation of concerns principle in software development often necessitates the use of specialized tools to manage the increased complexity of modular systems. While these tools can greatly enhance the development process, they also introduce several challenges. Now we'll dive deeper and look at the tooling challenges associated with the principle.
+Implementing the separation of concerns principle in software development often necessitates the use of specialized tools to manage the increased complexity of modular systems. 
+While these tools can greatly enhance the development process, they also introduce several challenges. 
+Now we'll dive deeper and look at the tooling challenges associated with the principle.
 \par
-There is a vast array of tools available for different aspects of software development, such as version control, build automation, testing, deployment, and monitoring. Selecting the right combination of tools that work well together and support that support the principle can be daunting.
-Once chosen, integrating these tools into a cohesive development environment can be challenging. Ensuring that the tools communicate effectively and that workflows are streamlined requires careful planning and configuration. Integration issues can lead to inefficiencies and disruptions in the development process.
+There is a vast array of tools available for different aspects of software development, such as version control, build automation, testing, deployment, and monitoring. 
+Selecting the right combination of tools that work well together and support that support the principle can be daunting.
+Once chosen, integrating these tools into a cohesive development environment can be challenging. 
+Ensuring that the tools communicate effectively, and that workflows are streamlined requires careful planning and configuration. 
+Integration issues can lead to inefficiencies and disruptions in the development process.
 \par
 Setting up the development environment to support separation of concerns typically involves configuring multiple tools and ensuring they are correctly set up for different modules. This setup can be time-consuming and complex, especially for large projects.
 Ensuring that all developers have consistent environments can be difficult. Discrepancies in tool versions, configurations, or dependencies can lead to “it works on my machine” issues, where code behaves differently on different setups.
@@ -281,7 +292,9 @@ In summary, by selecting the right tools, providing comprehensive training and d
 
 
 \subsection{Debugging}
-Applying the separation of concerns principle introduces several debugging challenges due to the modular and often distributed nature of the system. Let's take a look at these challenges.
+Applying the separation of concerns principle introduces several debugging challenges due to the modular and often distributed nature of the system. 
+Debugging is a step that's quite often met in the development process, because it "typically happens during three activities" \cite{debugging} of this process.
+Let's take a look at these challenges.
 \par
 In a system where concerns are separated into distinct modules or services, identifying the source of an issue can be challenging. A bug in one module might manifest as an error in another, leading to confusion about where the problem actually lies.
 Debugging issues that span multiple modules requires understanding the interactions and dependencies between them. This complexity increases with the number of modules and their interconnections.

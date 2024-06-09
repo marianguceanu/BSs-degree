@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1717716422.14049 "main.aux" "main.bbl" "main" 1717716424.05569 0
-  "./references.bib" 1717711559.87999 3128 b168ebca468a5c3faca888cfc2a1f5e8 ""
+["bibtex main"] 1717838643.41243 "main.aux" "main.bbl" "main" 1717838644.58393 0
+  "./references.bib" 1717838641.73495 5830 f33e05ada317bdc58f6e8f1d18b56e9f ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/alpha.bst" 1714953600 23907 a5f93555796fb564b924339521f10a7c ""
-  "main.aux" 1717716423.88043 14584 2096b57170aa68731008704b011b5600 "pdflatex"
+  "main.aux" 1717838644.47401 15116 7f279e5751f72f9019cd9d1e10b51575 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1717716422.16068 "main.tex" "main.pdf" "main" 1717716424.05595 0
+["pdflatex"] 1717838643.43303 "main.tex" "main.pdf" "main" 1717838644.58418 2
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1714953600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1136768653 1616 371d1ee60c04b008c8fd760060cd34f1 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -96,17 +96,17 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1716492813.30517 293079 eb34fef57086acb79b142616bb11dc70 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1717708463 6446978 8c07b88b985d6e6a48750b2c6c1ddd0d ""
-  "chapters/chapter1_introduction.tex" 1716494207.27715 2902 f067882bd1cbc405df7412f2779e86c0 ""
-  "chapters/chapter2.tex" 1717716419.20233 9109 34d6ccf76d9c03a8cf616752449ce727 ""
-  "chapters/chapter3.tex" 1716492166.58811 34414 94226885ee8889121af204bb945e0aa7 ""
-  "chapters/chapter4.tex" 1717715978.18872 21458 3b2c5dbbea8e5f062d8b87f03b020e04 ""
+  "chapters/chapter1_introduction.tex" 1717823977.54394 3084 f554e2a40f6341ea694b4f35b5274508 ""
+  "chapters/chapter2.tex" 1717823333.09309 10244 224ef5d8697aab4da36eda339d850349 ""
+  "chapters/chapter3.tex" 1717833261.22943 34595 eee6865059d7dbabf1277b1367ae635b ""
+  "chapters/chapter4.tex" 1717838641.75695 23107 6f60b4cf2318c0e562ba536d4e467723 ""
   "chapters/chapter5.tex" 1717715524.67283 9790 0dd1fcc297cd8e66ff87efa9bca95d03 ""
   "chapters/chapter6.tex" 1717447570.84053 2315 52a03c3d3379f76e1278c7fe950de4b2 ""
-  "main.aux" 1717716423.88043 14584 2096b57170aa68731008704b011b5600 "pdflatex"
-  "main.bbl" 1717716422.15439 1236 9b00d90a26c76340818046c8a14ba25f "bibtex main"
-  "main.out" 1717716423.88343 7905 0d5d595528d67f4568ffa8100ff04f8b "pdflatex"
+  "main.aux" 1717838644.47401 15116 7f279e5751f72f9019cd9d1e10b51575 "pdflatex"
+  "main.bbl" 1717838643.42899 3824 7aec6b8cdab6a13dd26609cde1ec16f5 "bibtex main"
+  "main.out" 1717838644.47601 7530 d6555c0779f55b82fc86f8e1b24aa29f "pdflatex"
   "main.tex" 1717707280.16855 6387 c8f657875936e99780ade667d344033c ""
-  "main.toc" 1717716423.88343 4583 3bceb4c91c2f6f66956a30fc0a131bd4 "pdflatex"
+  "main.toc" 1717838644.47601 4286 2b1532677e3b738ff556dc49d6935477 "pdflatex"
   "pictures/KenThompson_and_DennisRitchie1973.jpg" 1716491561.49083 10790 2f835bae36be15de20cec263a5a2e0cc ""
   "pictures/arpanet.png" 1716491530.33125 347850 20df7fb1c4fa825752183faf348f792e ""
   "pictures/because_it_looks_bad_we_have_ui.png" 1717438131.47293 85346 172168612fbb0c81bf91f3bf5d89a694 ""
