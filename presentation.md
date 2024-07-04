@@ -1,6 +1,5 @@
 # Quick rundown (small table of contents)
 <!--toc:start-->
-- [Quick rundown (small table of contents)](#quick-rundown-small-table-of-contents)
 - [󱠡 Hello!](#󱠡-hello)
   - [Motivation: Why did I want to do this?](#motivation-why-did-i-want-to-do-this)
 - [ Thesis breakdown](#-thesis-breakdown)
@@ -117,8 +116,8 @@
 - Due to suggestive naming, it's easy to have an idea of what the child component is, and how it functions
 - The snippet has light nesting → easier to follow
 # Focus: how easy can we change the child component?
-- It's pretty repeated → should have a general behavior
-- If we want to customize it's behavior -> insert flags (e.g. _isPassword_ parameter)
+- It's pretty repeated                 → should have a general behavior
+- If we want to customize its behavior → insert flags (e.g. _isPassword_ parameter)
 ---
 # 󰗙 Not so easy to read code, also from demo app
 ```dart
@@ -157,11 +156,11 @@ return Column(
 ---
 # Focus: how easy can we understand what this component does?
 - Due to extensive nesting → hard to follow its operational flow
-- Inexpressive naming → confusion (is _createChatCallback_ an actual callback or an API call?)
+- Inexpressive naming      → confusion (is _createChatCallback_ an actual callback or an API call?)
 ---
 # Actual, real-world examples of big projects
 ---
-#  11 graph arcs example
+#  11 operational flow example
 ### Continuous communication between components
 - Kernel → X Server → X client → X server → Kernel
 ### If you want a compositor to get rid of issues such as screen tearing
@@ -170,7 +169,7 @@ return Column(
 **Above**: the communication between components in the X11 architecture 
 [Reference for example](https://www.x.org/wiki/)
 ---
-#  ayland graph arcs example
+#  ayland operational flow example
 ### Continuous communication between components
 - Kernel → Wayland Compositor* → Client → Wayland Compositor* → Kernel 
 <br>
@@ -183,7 +182,7 @@ Thus, it more security and faster performance.
 [Reference for example](https://wayland.freedesktop.org/architecture.html)
 ---
 #  Demo time!
-- Let's take a look at the project discussed in the file and code comparison sections
+- Let's take a look at the project discussed in the tree and code comparison sections
 ## Tech stack used:
 - Flutter                        → Cross-platform framework
 - Golang with Gin as a framework → Rest API 
